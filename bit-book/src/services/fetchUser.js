@@ -1,4 +1,3 @@
-import { API_USERS_BASE_URL } from '../shared/users-constants';
 import Profile from '../entities/Profile';
 
 const fetchUser = () => {
