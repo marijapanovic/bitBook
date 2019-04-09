@@ -8,7 +8,7 @@ class Post {
         this.comments = comments;
     }
 }
-export default Post;
+//export default Post;
 
 class PostVideo extends Post {
     constructor(id, userId, createdAt, type, comments, videoUrl) {
@@ -16,4 +16,17 @@ class PostVideo extends Post {
         this.videoUrl = videoUrl;
     }
 }
-//export { Post, PostVideo }
+class PostImage extends Post {
+    constructor(id, userId, createdAt, type, comments, imageUrl) {
+        super(id, userId, createdAt, type, comments)
+        this.imageUrl = imageUrl;
+    }
+}
+
+class PostText extends Post {
+    constructor(id, userId, createdAt, type, comments, text) {
+        super(id, userId, createdAt, type, comments)
+        this.text = text;
+    }
+}
+export { Post, PostVideo, PostImage, PostText }
