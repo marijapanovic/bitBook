@@ -40,40 +40,44 @@ class ProfilePage extends React.Component {
     render() {
         return (
             <>
-                <div>
+                <div key={this.state.id} className='container'>
+                    <div className='center-align'>
 
-                    <div className=''>
-                        <img src={this.state.avatarUrl} alt='Profile picture' />
+                        <div className='profile-picture'>
+                            <img src={this.state.avatarUrl} className='z-depth-2' alt='Profile picture' />
+                        </div>
+
+                        <div className='profile-title'>
+                            <h3>
+                                {this.state.name.prefix} {this.state.name.first} {this.state.name.last}</h3>
+                            <p><Link to='/updateprofile:id'>Edit profile</Link></p>
+                        </div>
+
+                        <div className='profile-body'>
+                            <p>
+                                <span>Bio: </span>
+                                {this.state.about.bio}
+                                <br></br>
+
+                                <span>Job: </span>
+                                {this.state.about.job}
+                                <br></br>
+
+                                <span>Country Code: </span>
+                                {this.state.about.countryCode}
+                                <br></br>
+                            </p>
+                        </div>
+
+                        <div className="profile-posts">
+                            <a className="waves-effect waves-light btn-small">15 posts</a>
+                        </div>
+
+                        <div className="profile-comments">
+                            <a className="waves-effect waves-light btn-small">30 comments</a>
+                        </div>
+
                     </div>
-
-                    <div className=''>
-                        <h3>
-                            {this.state.name.prefix} {this.state.name.first} {this.state.name.last}</h3>
-                        <p><Link to=''>Edit profile</Link></p>
-                    </div>
-
-                    <div className=''>
-                        <p>
-                            {this.state.about.bio}
-                            <br></br>
-                            {this.state.about.job}
-                            <br></br>
-                            {this.state.about.countryCode}
-                            <br></br>
-                        </p>
-                    </div>
-
-                    <div className="chip">
-                        <i className="small material-icons">copyright</i>
-                        15 posts
-                    </div>
-
-                    <div className="chip">
-                        <i className="small material-icons">copyright</i>
-                        30 Comments
-                    </div>
-
-
                 </div>
             </>
         )

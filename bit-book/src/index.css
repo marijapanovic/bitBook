@@ -1,3 +1,11 @@
+/************* GENERAL STYLE ***********/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -11,4 +19,58 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/************* PROFILE PAGE **************/
+.center-align {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.profile-picture img {
+  width: 30%;
+  border-radius: 50%;
+}
+
+.profile-title h3 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.profile-title p {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 2% 0;
+}
+
+.profile-body p {
+  line-height: 2em;
+  margin-bottom: 15px;
+}
+
+.profile-body span {
+  font-weight: bold;
+}
+
+.chip {
+  margin-right: 30px;
+  padding: 0;
+  line-height: 0.9;
+  width: 150px;
+}
+
+.chip:last-child {
+  margin-right: 0;
+}
+
+.chip i {
+  font-size: 2.5rem;
+  margin-left: -10px;
+}
+
+.profile-posts, .profile-comments {
+  font-size: 1.2rem; 
+}
+.profile-posts {
+  margin-bottom: 15px;
 }
