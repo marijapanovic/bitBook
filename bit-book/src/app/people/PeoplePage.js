@@ -1,45 +1,57 @@
 import React from 'react';
-
+import fetchAllUsers from '../../services/fetchAllUsers';
 
 class People extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
 
-        }
+        this.state = {
+            users: []
+        };
+    }
+
+    componentDidMount() {
+        fetchAllUsers()
+            .then((users) => {
+                this.setState({
+                    users
+                })
+            })
     }
 
     render() {
+        const { users } = this.state;
+
         return (
 
             <div className='container'>
                 <div className='center-align'>
 
-                    <div className="nav-wrapper">
-                        <form>
-                            <div className="input-field">
-                                <input id="search" type="search" required />
-                                <label className="label-icon" for="search">
-                                    <i className="material-icons">search</i>
-                                </label>
-                                <i className="material-icons">close</i>
-                            </div>
-                        </form>
-                    </div>
+                    <form className='blue lighten-2 z-depth-1'>
+                        <div className="input-field">
+                            <input id="search" type="search" placeholder='Search' required />
+                            <label className="label-icon" for="search">
+                                <i className="material-icons">search</i>
+                            </label>
+                            <i className="material-icons">close</i>
+                        </div>
+                    </form>
 
-                    <ul className="collection">
+                    <ul className="collection z-depth-1">
 
-                        <li className="collection-item avatar">
-                            <img src="" alt="" className="circle" />
-                            <i class="material-icons circle">folder</i>
-                            <span className="title">Jane Doe</span>
-                            <p>Short user description bla bla</p>
-                            <div>
-                                <p>Last post at 07:53</p>
-                            </div>
-                        </li>
+                        {users.map(user => (
+                            <li key={user.id} className="collection-item avatar">
+                                <img src={user.avatarUrl} alt="Profile picture" className="circle" />
+                                <span className="title">{user.namePrefix} {user.nameFirst} {user.nameLast}</span>
+                                <p>{user.aboutBio}</p>
+                                <div>
+                                    <p>{user.createdAt}</p>
+                                </div>
+                            </li>
+                        ))}
 
                     </ul>
+
                 </div>
             </div>
 
