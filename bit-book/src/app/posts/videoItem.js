@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const VideoItem = (props) => {
-    const post = props.post
+    const post = props.post;
+    //const id = props.match.params.post.id;
     return (
         <div key={post.id} className="row cardItem">
             <div className="col s12 m6 l2"></div>
@@ -10,14 +12,17 @@ const VideoItem = (props) => {
                     <div className="card-content white-text">
                         <iframe width="420" height="315" src={post.videoUrl}></iframe>
                     </div>
-                    <div className="card-action">
-                        <span>Video post</span> <span className="commentsPost">Comments : {post.comments.length} </span>
-                    </div>
+                    <Link to={`/posts/${post.id}`}>
+                        <div className="card-action">
+                            <span>Video post</span> <span className="commentsPost">Comments : {post.comments.length} </span>
+                        </div>
+                    </Link >
                 </div>
 
             </div>
             <div className="col s12 m6 l2"></div>
         </div>
+
     )
 
 }

@@ -6,8 +6,10 @@ import TextItem from './TextItem';
 
 const FeedList = (props) => {
     const posts = props.posts
+
     return (
         posts.map(post => {
+            //const id = props.match.params.post.id;
             if (post.type === 'video') {
                 return <VideoItem post={post} />
             }
