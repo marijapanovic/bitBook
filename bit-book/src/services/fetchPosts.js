@@ -47,7 +47,23 @@ export const fetchPost = (id) => {
 
         })
 }
-
+export const fetchComments = (id) => {
+    return fetch(`${API_BASE_URL}/posts/${id}/comments`, {
+        method: "GET",
+        headers: {
+            "content-type": "application/json",
+            "x-api-key": "B1tD3V"
+        }
+    })
+        .then(response => response.json())
+        .then(commentsArray => {
+            const comments = commentsArray
+                .map(comment => {
+                    return new Comment(comment.commentId, comment.postId, comment.userId, comment.body)
+                })
+            return comments;
+        })
+}
 
 
 export default fetchPosts;
