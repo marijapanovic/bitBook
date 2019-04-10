@@ -1,7 +1,6 @@
 import React from 'react';
-import fetchPosts from '../../services/fetchPosts';
+import fetchPosts from '../../services/FetchPosts';
 import FeedList from './FeedList'
-//import { Link } from 'react-router-dom';
 
 class FeedPage extends React.Component {
     constructor(props) {

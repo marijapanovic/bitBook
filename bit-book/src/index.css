@@ -98,3 +98,74 @@ code {
   padding : 0 10px;
 
 }
+
+/************* PEOPLE PAGE **************/
+.input-field {
+  padding-left: 70px;
+  margin-bottom: 50px;
+}
+
+.input-field label {
+  padding: 10px 0 0 10px;
+  color: red;
+}
+
+.input-field input[type=search] ~ .material-icons {
+  position: absolute;
+  top: 8px;
+  right: 1rem;
+  color: red;
+  cursor: pointer;
+  font-size: 2rem;
+  -webkit-transition: .3s color;
+  transition: .3s color;
+}
+
+.input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-transition: border .3s, -webkit-box-shadow .3s;
+  transition: border .3s, -webkit-box-shadow .3s;
+  transition: box-shadow .3s, border .3s;
+  transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+}
+
+.collection .collection-item.avatar:not(.circle-clipper)>.circle, .collection .collection-item.avatar :not(.circle-clipper)>.circle {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  overflow: hidden;
+  left: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.people-title {
+  display: inline-block;
+  text-align: left;
+  float: left;
+  padding-left: 40px;
+  line-height: 1.2em;
+}
+
+.people-title h6 {
+  font-weight: 700;
+  font-size: 1.3em;
+}
+
+.people-time {
+  display: inline-block;
+  float: right;
+  padding-top: 10px;
+}
