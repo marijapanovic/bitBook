@@ -6,7 +6,9 @@ class People extends React.Component {
         super(props);
 
         this.state = {
-            users: []
+            users: [],
+            allUsers: [],
+            query: "",
         };
     }
 
@@ -14,9 +16,24 @@ class People extends React.Component {
         fetchAllUsers()
             .then((users) => {
                 this.setState({
-                    users
+                    allUsers: users,
+                    users: users
                 })
+                console.log(users)
             })
+    }
+
+    handleInputChange = (event) => {
+        const query = event.target.value;
+        const filteredUsers = this.state.allUsers.filter((user) => {
+            const fullName = `${user.nameFirst} ${user.nameLast}`;
+            return fullName.includes(query)
+        })
+        this.setState({
+            users: filteredUsers
+        })
+
+        console.log(filteredUsers);
     }
 
     render() {
@@ -29,7 +46,11 @@ class People extends React.Component {
 
                     <form className='blue lighten-2 z-depth-1'>
                         <div className="input-field">
-                            <input id="search" type="search" placeholder='Search' required />
+                            <input id="search"
+                                type="search"
+                                placeholder='Search'
+                                onChange={this.handleInputChange}
+                                required />
                             <label className="label-icon" for="search">
                                 <i className="material-icons">search</i>
                             </label>
@@ -45,7 +66,7 @@ class People extends React.Component {
                                 <span className="title">{user.namePrefix} {user.nameFirst} {user.nameLast}</span>
                                 <p>{user.aboutBio}</p>
                                 <div>
-                                    <p>{user.createdAt}</p>
+                                    <p>Last post at {user.createdAt}</p>
                                 </div>
                             </li>
                         ))}

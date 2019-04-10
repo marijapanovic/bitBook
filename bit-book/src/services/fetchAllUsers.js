@@ -11,10 +11,24 @@ const fetchAllUsers = () => {
     })
         .then(res => res.json())
         .then((usersArray) => {
-            console.log(usersArray)
+            // console.log(usersArray)
             const users = usersArray
                 .map((users) => {
-                    return new Profile(users.id, users.sid, users.email, users.createdAt, users.avatarUrl, users.about.bio, users.about.job, users.about.countryCode, users.name.prefix, users.name.first, users.name.last)
+                    let timeCreated = new Date(users.createdAt);
+                    let time = timeCreated.getHours() + ':' + timeCreated.getMinutes();
+
+                    return new Profile(
+                        users.id,
+                        users.sid,
+                        users.email,
+                        time,
+                        users.avatarUrl,
+                        users.about.bio,
+                        users.about.job,
+                        users.about.countryCode,
+                        users.name.prefix,
+                        users.name.first,
+                        users.name.last)
                 })
             return users;
         })
