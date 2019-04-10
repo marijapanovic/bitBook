@@ -7,14 +7,14 @@ const CommentsList = (props) => {
             <div>
                 <ul className="collection">
                     {comments.map((comment) =>
-                        comment)}
-                    <li className="collection-item avatar">
-                        <img src="images/yuna.jpg" alt="" className="circle" />
-                        <span className="title">Title</span>
-                        <p>First Line <br />
-                            Second Line
-                        </p>
-                    </li>
+                        <li className="collection-item avatar">
+                            <img src="images/yuna.jpg" alt="" className="circle" />
+                            <span className="title">Title</span>
+                            <p>{comment.body} <br />
+                                userId:{comment.userId}
+                            </p>
+                        </li>)}
+
                 </ul>
             </div>
         </>
