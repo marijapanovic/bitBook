@@ -2,7 +2,7 @@ import Profile from '../entities/Profile';
 import { API_BASE_URL } from '../shared/constants';
 
 const fetchAllUsers = () => {
-    return fetch(`${API_BASE_URL}/users`, {
+    return fetch(`${API_BASE_URL}/users?_limit=50`, {
         method: "GET",
         headers: {
             "content-type": "application/json",
@@ -16,13 +16,14 @@ const fetchAllUsers = () => {
                 .map((users) => {
                     let timeCreated = new Date(users.createdAt);
                     let time = timeCreated.getHours() + ':' + timeCreated.getMinutes();
+                    let userImage = (users.avatarUrl == null & users.avatarUrl == undefined) ? 'https://via.placeholder.com/50' : users.avatarUrl;
 
                     return new Profile(
                         users.id,
                         users.sid,
                         users.email,
                         time,
-                        users.avatarUrl,
+                        userImage,
                         users.about.bio,
                         users.about.job,
                         users.about.countryCode,

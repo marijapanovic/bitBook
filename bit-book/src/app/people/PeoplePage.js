@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import fetchAllUsers from '../../services/fetchAllUsers';
 
 class People extends React.Component {
@@ -9,6 +10,7 @@ class People extends React.Component {
             users: [],
             allUsers: [],
             query: "",
+
         };
     }
 
@@ -32,8 +34,6 @@ class People extends React.Component {
         this.setState({
             users: filteredUsers
         })
-
-        console.log(filteredUsers);
     }
 
     render() {
@@ -65,10 +65,12 @@ class People extends React.Component {
                         {users.map(user => (
                             <li key={user.id} className="collection-item avatar">
                                 <img src={user.avatarUrl} alt="Profile picture" className="circle" />
+
                                 <div className='people-title'>
-                                    <h6>{user.namePrefix} {user.nameFirst} {user.nameLast}</h6>
+                                    <Link to={`/${user.id}`}><h6>{user.namePrefix} {user.nameFirst} {user.nameLast}</h6></Link>
                                     <p>{user.aboutBio}</p>
                                 </div>
+
                                 <div className='people-time'>
                                     <p>Last post
                                         <br></br>
