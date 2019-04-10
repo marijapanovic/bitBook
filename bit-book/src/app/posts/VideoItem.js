@@ -1,34 +1,38 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ImageItem = (props) => {
-    const post = props.post
+const VideoItem = (props) => {
+    // const VideoItem = ({ post, showComments = false }) => {
+    const post = props.post;
+    //const visibleComments = props.showComments
+    // const id = props.match.params.id;
     return (
         <div key={post.id} className="row cardItem">
             <div className="col s12 m6 l2"></div>
             <div className="col s12 m8 12">
                 <div className="card blue-grey darken-1">
                     <div className="card-content white-text">
-                        <img src={post.imageUrl} alt="" />
+                        <iframe width="420" height="315" src={post.videoUrl}></iframe>
                     </div>
-                    {props.showComments ?
-                        <Link to={`/posts/${post.id}`} >
+                    {props.showComments ? <div>
+                        <Link to={`/posts/${post.id}`}>
                             <div className="card-action">
-                                <span>Image post</span> <span className="commentsPost"> Comments: {post.comments.length} </span>
+                                <span>Video post</span> <span className="commentsPost">Comments : {post.comments.length} </span>
                             </div>
-                        </Link>
-                        :
+                        </Link >
+                    </div> :
                         <div>
                             <input type="text" placeholder="Add your comment" />
                             <button type="submit">Send</button>
-                        </div>}
-
+                        </div>
+                    }
                 </div>
 
             </div>
             <div className="col s12 m6 l2"></div>
         </div>
+
     )
 
 }
-export default ImageItem
+export default VideoItem

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const TextItem = (props) => {
     const post = props.post
@@ -10,10 +11,21 @@ const TextItem = (props) => {
                     <div className="card-content white-text textPost">
                         <p>{post.text}</p>
                     </div>
-                    <div className="card-action">
-                        <span>Text post </span> <span className="commentsPost"> Comments:{post.comments.length}</span>
-                    </div>
+                    {props.showComments ?
+                        <div>
+                            <Link to={`/posts/${post.id}`}>
+                                <div className="card-action">
+                                    <span>Text post </span> <span className="commentsPost"> Comments:{post.comments.length}</span>
+                                </div>
+                            </Link>
+                        </div>
+                        :
+                        <div>
+                            <input type="text" placeholder="Add your comment" />
+                            <button type="submit">Send</button>
+                        </div>}
                 </div>
+
             </div>
             <div className="col s12 m6 l2"></div>
         </div>
