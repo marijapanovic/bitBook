@@ -44,9 +44,11 @@ class People extends React.Component {
             <div className='container'>
                 <div className='center-align'>
 
-                    <form className='blue lighten-2 z-depth-1'>
+                    <form className='teal lighten-3 z-depth-1'>
                         <div className="input-field">
-                            <input id="search"
+                            <input
+                                className='search-people'
+                                id="search"
                                 type="search"
                                 placeholder='Search'
                                 onChange={this.handleInputChange}
@@ -63,14 +65,18 @@ class People extends React.Component {
                         {users.map(user => (
                             <li key={user.id} className="collection-item avatar">
                                 <img src={user.avatarUrl} alt="Profile picture" className="circle" />
-                                <span className="title">{user.namePrefix} {user.nameFirst} {user.nameLast}</span>
-                                <p>{user.aboutBio}</p>
-                                <div>
-                                    <p>Last post at {user.createdAt}</p>
+                                <div className='people-title'>
+                                    <span>{user.namePrefix} {user.nameFirst} {user.nameLast}</span>
+                                    <p>{user.aboutBio}</p>
+                                </div>
+                                <div className='people-time'>
+                                    <p>Last post
+                                        <br></br>
+                                        at {user.createdAt}
+                                    </p>
                                 </div>
                             </li>
                         ))}
-
                     </ul>
 
                 </div>
