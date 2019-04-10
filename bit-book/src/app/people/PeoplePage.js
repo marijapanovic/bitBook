@@ -44,7 +44,7 @@ class People extends React.Component {
             <div className='container'>
                 <div className='center-align'>
 
-                    <form className='teal lighten-3 z-depth-1'>
+                    <form className='blue-grey lighten-5 z-depth-1'>
                         <div className="input-field">
                             <input
                                 className='search-people'
@@ -66,7 +66,7 @@ class People extends React.Component {
                             <li key={user.id} className="collection-item avatar">
                                 <img src={user.avatarUrl} alt="Profile picture" className="circle" />
                                 <div className='people-title'>
-                                    <span>{user.namePrefix} {user.nameFirst} {user.nameLast}</span>
+                                    <h6>{user.namePrefix} {user.nameFirst} {user.nameLast}</h6>
                                     <p>{user.aboutBio}</p>
                                 </div>
                                 <div className='people-time'>
