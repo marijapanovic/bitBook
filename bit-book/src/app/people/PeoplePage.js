@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import fetchAllUsers from '../../services/fetchAllUsers';
 
-class People extends React.Component {
+class PeoplePage extends React.Component {
     constructor(props) {
         super(props);
 
@@ -67,7 +67,7 @@ class People extends React.Component {
                                 <img src={user.avatarUrl} alt="Profile picture" className="circle" />
 
                                 <div className='people-title'>
-                                    <Link to={`/${user.id}`}><h6>{user.namePrefix} {user.nameFirst} {user.nameLast}</h6></Link>
+                                    <Link to={`/profile/${user.id}`}><h6>{user.namePrefix} {user.nameFirst} {user.nameLast}</h6></Link>
                                     <p>{user.aboutBio}</p>
                                 </div>
 
@@ -88,4 +88,4 @@ class People extends React.Component {
     }
 }
 
-export default People;
+export default PeoplePage;

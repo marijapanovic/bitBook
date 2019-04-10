@@ -1,17 +1,17 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import People from '../../entities/People';
-import Profile from '../profile/ProfilePage';
 import FeedPage from '../posts/FeedPage';
+import PeoplePage from '../people/PeoplePage';
+import ProfilePage from '../profile/ProfilePage';
 
 const Main = () => {
     return (
         <Switch>
+            <Route path='/profile' component={ProfilePage} />
+            <Route path='/profile/:userId' component={ProfilePage} />
+            <Route path='/people' component={PeoplePage} />
+            <Route path='/feed' component={FeedPage} />
             <Route path='/' component={FeedPage} />
-            <Route path='/people' component={People} />
-            <Route path='/profile' component={Profile} />
-
-
         </Switch>
     )
 
