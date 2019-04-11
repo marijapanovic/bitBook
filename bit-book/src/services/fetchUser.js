@@ -1,7 +1,8 @@
 import Profile from '../entities/Profile';
+import { API_BASE_URL } from '../shared/constants';
 
-const fetchUser = () => {
-    return fetch("https://book-api.hypetech.xyz/v1/users/2?_embed[]=posts&_embed[]=comments", {
+const fetchUser = (id) => {
+    return fetch(`${API_BASE_URL}/users/${id}?_embed[]=posts&_embed[]=comments`, {
         method: "GET",
         headers: {
             "content-type": "application/json",

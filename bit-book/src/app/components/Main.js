@@ -7,10 +7,9 @@ import ProfilePage from '../profile/ProfilePage';
 const Main = () => {
     return (
         <Switch>
-            <Route path='/profile' component={ProfilePage} />
             <Route path='/profile/:userId' component={ProfilePage} />
+            <Route path='/profile' component={ProfilePage} />
             <Route path='/people' component={PeoplePage} />
-            <Route path='/feed' component={FeedPage} />
             <Route path='/' component={FeedPage} />
         </Switch>
     )
