@@ -1,5 +1,5 @@
 import React from 'react';
-import fetchPosts from '../../services/fetchPosts';
+import { fetchPosts } from '../../services/fetchPosts';
 import FeedList from './FeedList'
 //import { Link } from 'react-router-dom';
 
