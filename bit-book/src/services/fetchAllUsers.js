@@ -2,7 +2,7 @@ import Profile from '../entities/Profile';
 import { API_BASE_URL } from '../shared/constants';
 
 const fetchAllUsers = () => {
-    return fetch(`${API_BASE_URL}/users?_limit=50`, {
+    return fetch(`${API_BASE_URL}/users`, {
         method: "GET",
         headers: {
             "content-type": "application/json",

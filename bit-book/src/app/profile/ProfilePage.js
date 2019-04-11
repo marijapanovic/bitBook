@@ -11,7 +11,8 @@ class ProfilePage extends React.Component {
     }
 
     componentDidMount() {
-        fetchUser()
+        const id = this.props.match.params.userId;
+        fetchUser(id)
             .then((user) => {
                 console.log(user)
                 this.setState({
