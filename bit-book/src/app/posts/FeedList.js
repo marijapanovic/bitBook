@@ -1,6 +1,6 @@
 import React from 'react'
 //import FeedPage from './FeedPage';
-import VideoItem from './VideoItem';
+import VideoItem from './videoItem';
 import ImageItem from './ImageItem';
 import TextItem from './TextItem';
 

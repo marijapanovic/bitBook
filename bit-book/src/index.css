@@ -1,3 +1,11 @@
+/************* GENERAL STYLE ***********/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -12,19 +20,67 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-/* .cardItem{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center
-} */
+
+/************* PROFILE PAGE **************/
+.center-align {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.profile-picture img {
+  width: 30%;
+  border-radius: 50%;
+}
+
+.profile-title h3 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.profile-title p {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 2% 0;
+}
+
+.profile-body p {
+  line-height: 2em;
+  margin-bottom: 15px;
+}
+
+.profile-body span {
+  font-weight: bold;
+}
+
+.chip {
+  margin-right: 30px;
+  padding: 0;
+  line-height: 0.9;
+  width: 150px;
+}
+
+.chip:last-child {
+  margin-right: 0;
+}
+
+.chip i {
+  font-size: 2.5rem;
+  margin-left: -10px;
+}
+
+.profile-posts, .profile-comments {
+  font-size: 1.2rem; 
+}
+.profile-posts {
+  margin-bottom: 15px;
+}
  .cardItem {
    width : 70%;
 }
 .card-content{
   margin: 0 auto;
   width:100%;
-  /* height: 500px !important; */
+  
 }
 .card-content img{
   width: 100%;
@@ -40,4 +96,76 @@ code {
 .commentsPost{
   float: right;
   padding : 0 10px;
+
+}
+
+/************* PEOPLE PAGE **************/
+.input-field {
+  padding-left: 70px;
+  margin-bottom: 50px;
+}
+
+.input-field label {
+  padding: 10px 0 0 10px;
+  color: red;
+}
+
+.input-field input[type=search] ~ .material-icons {
+  position: absolute;
+  top: 8px;
+  right: 1rem;
+  color: red;
+  cursor: pointer;
+  font-size: 2rem;
+  -webkit-transition: .3s color;
+  transition: .3s color;
+}
+
+.input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-transition: border .3s, -webkit-box-shadow .3s;
+  transition: border .3s, -webkit-box-shadow .3s;
+  transition: box-shadow .3s, border .3s;
+  transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+}
+
+.collection .collection-item.avatar:not(.circle-clipper)>.circle, .collection .collection-item.avatar :not(.circle-clipper)>.circle {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  overflow: hidden;
+  left: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.people-title {
+  display: inline-block;
+  text-align: left;
+  float: left;
+  padding-left: 40px;
+  line-height: 1.2em;
+}
+
+.people-title h6 {
+  font-weight: 700;
+  font-size: 1.3em;
+}
+
+.people-time {
+  display: inline-block;
+  float: right;
+  padding-top: 10px;
 }
