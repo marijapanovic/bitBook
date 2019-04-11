@@ -1,6 +1,6 @@
 import React from 'react';
 import { fetchPosts } from '../../services/fetchPosts';
-import FeedList from './FeedList'
+import FeedList from './PostList'
 
 class FeedPage extends React.Component {
     constructor(props) {

@@ -1,10 +1,10 @@
 import React from 'react'
 //import FeedPage from './FeedPage';
-import VideoItem from './videoItem';
+import VideoItem from './VideoItem';
 import ImageItem from './ImageItem';
 import TextItem from './TextItem';
 
-const FeedList = (props) => {
+const PostList = (props) => {
     const posts = props.posts
 
     return (
@@ -24,4 +24,4 @@ const FeedList = (props) => {
     )
 }
 
-export default FeedList;
+export default PostList;

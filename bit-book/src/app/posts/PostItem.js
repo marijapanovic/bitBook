@@ -6,7 +6,7 @@ import ImageItem from './ImageItem';
 import TextItem from './TextItem';
 import CommentsList from './CommentsList';
 
-class FeedItem extends React.Component {
+class PostItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -53,4 +53,4 @@ class FeedItem extends React.Component {
         return (<div></div>)
     }
 }
-export default FeedItem;
+export default PostItem;
