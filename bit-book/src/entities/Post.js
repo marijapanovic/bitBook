@@ -7,7 +7,6 @@ class Post {
         this.type = type;
     }
 }
-//export default Post;
 
 class PostVideo extends Post {
     constructor(id, userId, createdAt, type, videoUrl, comments) {
