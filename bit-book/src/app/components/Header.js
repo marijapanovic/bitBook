@@ -6,9 +6,11 @@ const Header = () => {
         <>
             <nav>
                 <div className="nav-wrapper">
-                    <a href="#" className="brand-logo">Bitbook</a>
+                    <Link to='/'>
+                        <a className="brand-logo">Bitbook</a>
+                    </Link>
                     <ul id="nav-mobile" className="right">
-                        <li><Link to='/'>Feed</Link></li>
+                        <li><Link to='/'>Posts</Link></li>
                         <li><Link to='/people'>People</Link></li>
                         <li><Link to='/profile'>Profile</Link></li>
                     </ul>
