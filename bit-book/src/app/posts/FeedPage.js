@@ -1,5 +1,5 @@
 import React from 'react';
-import fetchPosts from '../../services/FetchPosts';
+import { fetchPosts } from '../../services/fetchPosts';
 import FeedList from './FeedList'
 
 class FeedPage extends React.Component {
