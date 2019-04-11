@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import fetchUser from '../../services/fetchUser';
+import UpdateProfile from './UpdateProfile';
 
 class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: {}
+            user: {},
+            // isShowing: false
         }
     }
 
@@ -20,6 +22,18 @@ class ProfilePage extends React.Component {
                 })
             })
     }
+
+    // openModalHandler = () => {
+    //     this.setState({
+    //         isShowing: true
+    //     });
+    // }
+
+    // closeModalHandler = () => {
+    //     this.setState({
+    //         isShowing: false
+    //     });
+    // }
 
     render() {
         return (
@@ -35,7 +49,41 @@ class ProfilePage extends React.Component {
                             <h3>
                                 {this.state.user.namePrefix} {this.state.user.nameFirst} {this.state.user.nameLast}
                             </h3>
-                            <p><Link to='/updateprofile:id'>Edit profile</Link></p>
+
+                            <p className='waves-effect waves-light modal-trigger'><Link to={`/updateprofile/${this.state.user.id}`} >Edit profile</Link></p>
+
+
+                            {/* <div>
+                                {this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null}
+
+                                <button className="open-modal-btn" onClick={this.openModalHandler}>Open Modal</button>
+
+                                <UpdateProfile
+                                    className="modal"
+                                    show={this.state.isShowing}
+                                    close={this.closeModalHandler}>
+                                    Maybe aircrafts fly very high because they don't want to be seen in plane sight?
+                                </UpdateProfile>
+                            </div> */}
+
+
+                            <div id="modal1" className="modal open" tabindex="0" >
+                                <div className="modal-content">
+                                    <h4>Modal Header</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                                </div>
+                                <div className="modal-footer">
+                                    <a href="#!" className="modal-close waves-effect waves-red btn-flat">Disagree</a>
+                                    <a href="#!" className="modal-close waves-effect waves-green btn-flat">Agree</a>
+                                </div>
+                            </div>
+
+
+
+
                         </div>
 
                         <div className='profile-body'>

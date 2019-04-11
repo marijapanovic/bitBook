@@ -4,17 +4,17 @@ import PeoplePage from '../people/PeoplePage';
 import ProfilePage from '../profile/ProfilePage';
 import PostPage from '../posts/PostPage';
 import PostItem from '../posts/PostItem';
+import UpdateProfile from '../profile/UpdateProfile';
 
 const Main = () => {
     return (
         <Switch>
-
+            <Route path='/updateprofile/:userId' component={UpdateProfile} />
             <Route path='/profile/:userId' component={ProfilePage} />
             <Route path='/profile' component={ProfilePage} />
             <Route path='/people' component={PeoplePage} />
             <Route path='/posts/:id' component={PostItem} />
             <Route path='/' component={PostPage} />
-
         </Switch>
     )
 
