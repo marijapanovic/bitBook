@@ -1,14 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
 import fetchUser from '../../services/fetchUser';
-import UpdateProfile from './UpdateProfile';
+// import UpdateProfile from './UpdateProfile';
+
+import './UpdateProfile.css';
 
 class ProfilePage extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor(props, ...args) {
+        super(props, ...args);
+
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+
         this.state = {
             user: {},
-            // isShowing: false
+            modalShow: false,
         }
     }
 
@@ -23,19 +32,16 @@ class ProfilePage extends React.Component {
             })
     }
 
-    // openModalHandler = () => {
-    //     this.setState({
-    //         isShowing: true
-    //     });
-    // }
+    handleClose() {
+        this.setState({ show: false });
+    }
 
-    // closeModalHandler = () => {
-    //     this.setState({
-    //         isShowing: false
-    //     });
-    // }
+    handleShow() {
+        this.setState({ show: true });
+    }
 
     render() {
+
         return (
             <>
                 <div key={this.state.user.id} className='container'>
@@ -50,39 +56,34 @@ class ProfilePage extends React.Component {
                                 {this.state.user.namePrefix} {this.state.user.nameFirst} {this.state.user.nameLast}
                             </h3>
 
-                            <p className='waves-effect waves-light modal-trigger'><Link to={`/updateprofile/${this.state.user.id}`} >Edit profile</Link></p>
+                            <Button variant="primary" onClick={this.handleShow}>
+                                Edit profile
+                            </Button>
 
+                            <Modal
+                                show={this.state.show}
+                                onHide={this.handleClose}>
 
-                            {/* <div>
-                                {this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null}
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Update profile</Modal.Title>
+                                </Modal.Header>
 
-                                <button className="open-modal-btn" onClick={this.openModalHandler}>Open Modal</button>
+                                <Modal.Body>
 
-                                <UpdateProfile
-                                    className="modal"
-                                    show={this.state.isShowing}
-                                    close={this.closeModalHandler}>
-                                    Maybe aircrafts fly very high because they don't want to be seen in plane sight?
-                                </UpdateProfile>
-                            </div> */}
+                                    Woohoo, you're reading this text in a modal!
 
+                            </Modal.Body>
 
-                            <div id="modal1" className="modal open" tabindex="0" >
-                                <div className="modal-content">
-                                    <h4>Modal Header</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                                </div>
-                                <div className="modal-footer">
-                                    <a href="#!" className="modal-close waves-effect waves-red btn-flat">Disagree</a>
-                                    <a href="#!" className="modal-close waves-effect waves-green btn-flat">Agree</a>
-                                </div>
-                            </div>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={this.handleClose}>
+                                        Close
+                                </Button>
+                                    <Button variant="primary" onClick={this.handleClose}>
+                                        Update
+                                </Button>
+                                </Modal.Footer>
 
-
-
+                            </Modal>
 
                         </div>
 
