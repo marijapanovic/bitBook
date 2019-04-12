@@ -6,12 +6,13 @@
     top: 15%;
     background-color: #fafafa;
     padding: 0;
-    max-height: 70%;
-    width: 55%;
+    max-height: 80%;
+    width: 50%;
     margin: auto;
     overflow-y: auto;
     border-radius: 2px;
     will-change: top, opacity;
+    z-index: 99999999999;
 }
 .modal-content {
     position: relative;
@@ -45,13 +46,6 @@
     border-top-right-radius: .3rem;
 }
 
-/* .modal-header h3 {
-    color: white;
-    float: left;
-    margin: 0;
-    padding: 0;
-} */
-
 .modal-body {
     padding: 10px 15px;
     text-align: center;
@@ -68,38 +62,48 @@
 .close-modal-btn:hover {
     color: black;
 }
-/* 
-.btn-cancel, .btn-continue {
-    background: coral;
-    border: none;
-    color: white;
+
+/*********** UPLOAD PROFILE MODAL************/
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+
+
+
+
+/************** BUTTON ***********/
+.modal-header .close {
+    padding: 1rem 1rem;
+    margin: -1rem -1rem -1rem auto;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
     cursor: pointer;
-    font-weight: bold;
-    outline: none;
-    padding: 10px;
 }
-
-.btn-cancel {
-    background-color: #b71c1c;
-    float: left;
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
-
-.btn-continue {
-    background-color: #1b5e20;
+.close {
     float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
 }
 
-.back-drop {
-    background-color: rgba(48, 49, 48, 0.42);
-    height: 100%;
-    position: fixed;
-    transition: all 1.3s;
-    width: 100%;
+.sr-only {
+    display: none;
 }
 
-.open-modal-btn {
-    margin: 15px;
-    padding: 10px;
+.modal-title {
+    font-size: 24px;
     font-weight: bold;
-} */
-
+}

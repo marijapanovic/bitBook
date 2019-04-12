@@ -1,7 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Image from 'react-bootstrap/Image';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import fetchUser from '../../services/fetchUser';
 // import UpdateProfile from './UpdateProfile';
@@ -17,7 +22,7 @@ class ProfilePage extends React.Component {
 
         this.state = {
             user: {},
-            modalShow: false,
+            show: false,
         }
     }
 
@@ -65,14 +70,60 @@ class ProfilePage extends React.Component {
                                 onHide={this.handleClose}>
 
                                 <Modal.Header closeButton>
-                                    <Modal.Title>Update profile</Modal.Title>
+                                    <Modal.Title>UPDATE PROFILE</Modal.Title>
                                 </Modal.Header>
 
                                 <Modal.Body>
+                                    <Form>
 
-                                    Woohoo, you're reading this text in a modal!
+                                        <Form.Group controlId="formGroupPicture">
+                                            <Row>
+                                                <Col xs={6} md={4}>
+                                                    <Image src="https://via.placeholder.com/150" rounded />
+                                                </Col>
+                                            </Row>
+                                            <Button variant="primary" >
+                                                Upload Image
+                                            </Button>
+                                        </Form.Group>
 
-                            </Modal.Body>
+                                        <Form.Group controlId="formGroupName">
+                                            <Row></Row>
+                                            <Row>
+                                                <Form.Label>Name</Form.Label>
+                                            </Row>
+
+                                            <Row>
+                                                <Col>
+                                                    <Form.Control type="text" placeholder="Prefix" />
+                                                </Col>
+                                                <Col>
+                                                    <Form.Control type="text" placeholder="First Name" />
+                                                </Col>
+                                                <Col>
+                                                    <Form.Control type="text" placeholder="Last Name" />
+                                                </Col>
+                                            </Row>
+                                        </Form.Group>
+
+                                        <Form.Group controlId="formGroupName">
+                                            <Row>
+                                                <Form.Label>Description</Form.Label>
+                                            </Row>
+                                            <Row>
+                                                <Col>
+                                                    <Form.Control placeholder="Bio" />
+                                                </Col>
+                                                <Col>
+                                                    <Form.Control placeholder="Job" />
+                                                </Col>
+                                                <Col>
+                                                    <Form.Control placeholder="Country Code" />
+                                                </Col>
+                                            </Row>
+                                        </Form.Group>
+                                    </Form>
+                                </Modal.Body>
 
                                 <Modal.Footer>
                                     <Button variant="secondary" onClick={this.handleClose}>
