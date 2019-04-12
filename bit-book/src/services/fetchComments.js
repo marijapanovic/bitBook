@@ -36,6 +36,20 @@ export const postComment = (postId, text) => {
             "content-type": "application/json",
             "x-api-key": "B1tD3V"
         }
-
     })
+}
+
+export const deleteComment = (commentId) => {
+    return fetch(`${API_BASE_URL}/comments/${commentId}`, {
+        method: "DELETE",
+        headers: {
+            "content-type": "application/json",
+            "x-api-key": "B1tD3V"
+        }
+    })
+        .then((response) => {
+            return response.json();
+        }).then(() => {
+            alert("Comment is deleting")
+        })
 }

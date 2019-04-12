@@ -38,6 +38,9 @@ class PostItem extends React.Component {
                 })
             })
     }
+    handleOnClik = () => {
+
+    }
     handleOnChange = (e) => {
         this.setState({
             commentInput: e.target.value
@@ -61,7 +64,6 @@ class PostItem extends React.Component {
                 })
             )
         }
-
     }
 
     renderPostComponent(post) {

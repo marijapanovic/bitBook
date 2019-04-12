@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const CommentsList = (props) => {
-    const comments = props.comments
 
+const CommentsList = ({ comments }) => {
     return (
         <>
             <div className='container'>
@@ -15,13 +15,17 @@ const CommentsList = (props) => {
                                 <span className="title">{comment.userName}</span>
                                 <p>{comment.body} <br />
                                 </p>
+                                <a class="secondary-content" onClick={() => { this.handleClick(comment.id) }}><i class="fas fa-times"></i></a>
                             </div>
-                        </li>)}
-
+                        </li>)
+                    }
                 </ul>
 
             </div>
         </>
     )
+}
+CommentsList.propTypes = {
+    comments: PropTypes.object,
 }
 export default CommentsList;

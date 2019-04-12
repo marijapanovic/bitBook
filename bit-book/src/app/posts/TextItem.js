@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const TextItem = ({ post, showComments, handleInput }) => {
+const TextItem = ({ post, showComments }) => {
     return (
         <div key={post.id} className="row cardItem">
             <div className="col s12 m6 l2"></div>

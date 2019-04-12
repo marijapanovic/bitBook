@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const ImageItem = ({ post, showComments, handleInput }) => {
+const ImageItem = ({ post, showComments }) => {
     return (
         <div key={post.id} className="row cardItem">
             <div className="col s12 m6 l2"></div>
@@ -29,7 +29,6 @@ const ImageItem = ({ post, showComments, handleInput }) => {
 }
 ImageItem.propTypes = {
     post: PropTypes.object,
-    showComments: PropTypes.bool,
-    handleInput: PropTypes.func
+    showComments: PropTypes.bool
 }
 export default ImageItem
