@@ -1,8 +1,8 @@
 import React from 'react';
 import { fetchPosts } from '../../services/fetchPosts';
-import FeedList from './PostList'
+import PostList from './PostList'
 
-class FeedPage extends React.Component {
+class PostPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,8 +21,8 @@ class FeedPage extends React.Component {
     render() {
 
         return (
-            < FeedList posts={this.state.posts} />
+            < PostList posts={this.state.posts} />
         )
     }
 }
-export default FeedPage
+export default PostPage;

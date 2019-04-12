@@ -7,11 +7,12 @@ const createPost = post => {
     } else if (post.type === 'image') {
         return new PostImage(post.id, post.userId, post.createdAt, post.type, post.imageUrl, post.comments)
     }
-    else if (post.type === 'text') {
+    else {
         return new PostText(post.id, post.userId, post.createdAt, post.type, post.text, post.comments)
-    } else {
-        throw Error("Invalid post type");
     }
+    //else {
+    //     throw Error("Invalid post type");
+    // }
 };
 
 export const fetchPosts = () => {
