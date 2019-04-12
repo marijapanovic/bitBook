@@ -1,0 +1,107 @@
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 15%;
+  background-color: #fafafa;
+  padding: 0;
+  max-height: 80%;
+  width: 50%;
+  margin: auto;
+  overflow-y: auto;
+  border-radius: 2px;
+  will-change: top, opacity;
+  z-index: 99999999999;
+}
+.modal-content {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+.modal-wrapper {
+  background: white;
+  border: 1px solid #d0cccc;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  margin: 100px auto 0;
+  transition: all 0.8s;
+  width: 60%;
+}
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-bottom: 1px solid #e9ecef;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+.modal-body {
+  padding: 10px 15px;
+}
+
+.close-modal-btn {
+  color: white;
+  cursor: pointer;
+  float: right;
+  font-size: 30px;
+  margin: 0;
+}
+
+.close-modal-btn:hover {
+  color: black;
+}
+
+/*********** UPLOAD PROFILE MODAL************/
+
+.modal-body {
+  padding: 10px 15px;
+}
+
+/************** BUTTON ***********/
+.modal-header .close {
+  padding: 1rem 1rem;
+  margin: -1rem -1rem -1rem auto;
+}
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+button.close {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+}
+
+.sr-only {
+  display: none;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+}
