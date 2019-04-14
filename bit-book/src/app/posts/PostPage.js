@@ -1,6 +1,6 @@
 import React from 'react';
-import { fetchPosts } from '../../services/fetchPosts';
-import PostList from './PostList'
+import { fetchPosts, deletePost } from '../../services/servicesPosts';
+import PostList from './PostList';
 
 class PostPage extends React.Component {
     constructor(props) {
@@ -9,7 +9,7 @@ class PostPage extends React.Component {
             posts: []
         }
     }
-    componentDidMount() {
+    loadsPosts = () =>{
         fetchPosts()
             .then((posts) => {
                 this.setState({
@@ -17,11 +17,18 @@ class PostPage extends React.Component {
                 })
             })
     }
+    componentDidMount() {
+        this.loadsPosts()
+    }
+    handleDeletePost = (event, postId)=>{
+        postId = event.target.value;
+        deletePost(postId, this.loadsPosts);
+    }
 
     render() {
 
         return (
-            < PostList posts={this.state.posts} />
+            < PostList posts={this.state.posts} handleDeletePost={this.handleDeletePost}/>
         )
     }
 }
