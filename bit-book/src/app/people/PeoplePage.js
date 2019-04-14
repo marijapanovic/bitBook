@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import fetchAllUsers from '../../services/fetchAllUsers';
+import Loading from '../components/Loading';
 
 class PeoplePage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            users: [],
+            users: null,
             allUsers: [],
             query: "",
 
@@ -39,6 +40,10 @@ class PeoplePage extends React.Component {
     render() {
         const { users } = this.state;
 
+        if (!this.state.users) {
+            return <Loading />;
+          }
+          
         return (
 
             <div className='container'>

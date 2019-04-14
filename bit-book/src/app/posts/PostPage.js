@@ -1,12 +1,13 @@
 import React from 'react';
 import { fetchPosts } from '../../services/fetchPosts';
 import FeedList from './PostList'
+import Loading from '../components/Loading';
 
 class FeedPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: []
+            posts: null
         }
     }
     componentDidMount() {
@@ -20,6 +21,10 @@ class FeedPage extends React.Component {
 
     render() {
 
+        if (!this.state.posts) {
+            return <Loading />;
+          }
+          
         return (
             < FeedList posts={this.state.posts} />
         )
