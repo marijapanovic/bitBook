@@ -169,3 +169,11 @@ code {
   float: right;
   padding-top: 10px;
 }
+/* Button add header */
+
+.waves-effect{
+  background-color: #ee6e73 !important;
+}
+.dropdownbtn{
+  background-color: #ee6e73 !important;
+}
