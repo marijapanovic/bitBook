@@ -1,4 +1,4 @@
-import { API_BASE_URL } from '../shared/constants';
+import { API_BASE_URL, HEADERS_API } from '../shared/constants';
 import { PostVideo, PostImage, PostText } from '../entities/Post';
 
 const createPost = post => {
@@ -17,11 +17,7 @@ const createPost = post => {
 
 export const fetchPosts = () => {
     return fetch(`${API_BASE_URL}/posts?_embed=comments`, {
-        method: "GET",
-        headers: {
-            "content-type": "application/json",
-            "x-api-key": "B1tD3V"
-        }
+        method: "GET", HEADERS_API
     })
         .then(response => response.json())
         .then(postsArray => {
@@ -36,11 +32,7 @@ export const fetchPosts = () => {
 
 export const fetchPost = (id) => {
     return fetch(`${API_BASE_URL}/posts/${id}`, {
-        method: "GET",
-        headers: {
-            "content-type": "application/json",
-            "x-api-key": "B1tD3V"
-        }
+        method: "GET", HEADERS_API
     })
         .then(response => response.json())
         .then(post => {
@@ -49,14 +41,10 @@ export const fetchPost = (id) => {
         })
 }
 
-export const deletePost = (id) => {
+export const deletePost = (id, loadsPosts) => {
     return fetch(`${API_BASE_URL}/posts/${id}`, {
-        method: "GET",
-        headers: {
-            "content-type": "application/json",
-            "x-api-key": "B1tD3V"
-        }
+        method: "DELETE", HEADERS_API
     })
-    // .then(response => response.json())
+     .then(loadsPosts);
 
 }

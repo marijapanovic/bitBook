@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchPost } from '../../services/fetchPosts';
-import { fetchComments, postComment } from '../../services/fetchComments';
+import { fetchPost} from '../../services/servicesPosts';
+import { fetchComments, postComment, deleteComment } from '../../services/servicesComments';
 import VideoItem from './VideoItem';
 import ImageItem from './ImageItem';
 import TextItem from './TextItem';
@@ -21,25 +21,27 @@ class PostItem extends React.Component {
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id;
-        fetchPost(id)
+        const postId = this.props.match.params.id;
+        fetchPost(postId)
             .then((post) => {
                 this.setState({
                     post
                 })
             })
-        this.loadsComments(id);
+        this.loadsComments();
     }
-    loadsComments = (id) => {
-        fetchComments(id)
+    loadsComments = () => {
+        const postId = this.props.match.params.id;
+        fetchComments(postId)
             .then((comments) => {
                 this.setState({
                     comments: comments
                 })
             })
     }
-    handleOnClik = () => {
-
+    handleDelete = (event,commentId) => {
+        commentId = event.target.value
+        deleteComment(commentId, this.loadsComments);
     }
     handleOnChange = (e) => {
         this.setState({
@@ -68,14 +70,14 @@ class PostItem extends React.Component {
 
     renderPostComponent(post) {
         if (post.type === 'video') {
-            return <VideoItem post={this.state.post} showComments={false} />
+            return <VideoItem post={this.state.post} showComments={false} 
+             />
         } else if (post.type === 'text') {
             return <TextItem post={this.state.post} showComments={false}
-                handleInput={this.handleInput}
-                disableBtn={false} />
+               />
         } else {
             return <ImageItem post={this.state.post} showComments={false}
-                handleInput={this.handleInput} />
+                />
         }
     }
     render() {
@@ -88,7 +90,7 @@ class PostItem extends React.Component {
                         <button type='submit'>Send</button>
                     </div>
                 </form>
-                < CommentsList comments={this.state.comments} />
+                <CommentsList comments={this.state.comments} handleDelete={this.handleDelete}/>
             </div>
         )
     }
