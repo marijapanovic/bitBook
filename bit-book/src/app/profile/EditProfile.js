@@ -6,7 +6,6 @@ import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Alert from "react-bootstrap/Alert";
 
 import "./EditProfile.css";
 import updateProfile from "../../services/updateProfile";
@@ -20,8 +19,7 @@ class EditProfile extends React.Component {
       user: props.user,
       handleClose: props.handleClose,
       handleShow: props.handleShow,
-      getUser: props.getUser,
-      selectedFile: null
+      getUser: props.getUser
     };
   }
 
@@ -40,6 +38,7 @@ class EditProfile extends React.Component {
   editProfileInfo = event => {
     event.preventDefault();
     const { user } = this.state;
+    const { selectedImage } = this.state;
 
     const updatedUser = {
       avatarUrl: user.avatarUrl,
@@ -54,6 +53,8 @@ class EditProfile extends React.Component {
         countryCode: user.aboutCountryCode
       }
     };
+
+    selectedImage && this.uploadHandler();
 
     const isEnabled = user.nameFirst.length > 0 && user.nameLast.length > 0;
 
@@ -134,17 +135,22 @@ class EditProfile extends React.Component {
     });
   };
 
+  changeProfileImage = event => {
+    const { user } = this.state;
+    const userProfileImage = {
+      ...user,
+      avatarUrl: event.target.value
+    };
+    this.setState({
+      user: userProfileImage
+    });
+  };
+
   fileSelectedHandler = event => {
     this.setState({
       selectedFile: event.target.files[0]
     });
   };
-
-  // fileUploadHandler = () => {
-  //   const fd = new FormData();
-  //   fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
-  //   avatarUrl.post()
-  // }
 
   render() {
     const { show } = this.props;
@@ -164,7 +170,7 @@ class EditProfile extends React.Component {
 
     return (
       <>
-        <Modal show={show} onHide={this.handleClose}>
+        <Modal show={show} onHide={this.props.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>UPDATE PROFILE</Modal.Title>
           </Modal.Header>
@@ -174,18 +180,15 @@ class EditProfile extends React.Component {
               <Form.Group controlId="formGroupPicture">
                 <Row>
                   <Col xs={6} md={4}>
-                    <Image
-                      src={avatarUrl || this.fileSelectedHandler}
-                      roundedCircle
-                    />
+                    <Image src={avatarUrl} roundedCircle />
                   </Col>
                 </Row>
-                <input
-                  type="file"
-                  onChange={this.fileSelectedHandler}
-                  ref={fileInput => (this.fileInput = fileInput)}
+                <Form.Control
+                  type="url"
+                  placeholder="Image URL"
+                  value={avatarUrl}
+                  onChange={this.changeProfileImage}
                 />
-                <Button variant="primary">Upload Image</Button>
               </Form.Group>
 
               <Form.Group controlId="formGroupName">
@@ -278,7 +281,7 @@ class EditProfile extends React.Component {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
+            <Button variant="secondary" onClick={this.props.handleClose}>
               Close
             </Button>
             <Button
