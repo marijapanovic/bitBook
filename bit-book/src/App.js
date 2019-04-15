@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-import Header from './app/components/Header';
-import Footer from './app/components/Footer';
-import Main from './app/components/Main';
+import React, { Component } from "react";
+import Header from "./app/components/Header";
+import Footer from "./app/components/Footer";
+import Main from "./app/components/Main";
+import Register from "./app/login/Register";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <Main />
-        <Footer />
+        {/* <Header /> */}
+        {/* <Main /> */}
+        <Register />
+        {/* <Footer /> */}
       </div>
     );
   }

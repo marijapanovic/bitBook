@@ -21,6 +21,10 @@ code {
     monospace;
 }
 
+.mr-20 {
+  margin-right: 20px !important;
+}
+
 /************* PROFILE PAGE **************/
 .center-align {
   text-align: center;
