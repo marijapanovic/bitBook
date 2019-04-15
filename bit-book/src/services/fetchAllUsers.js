@@ -16,7 +16,7 @@ const fetchAllUsers = () => {
                 .map((users) => {
                     let timeCreated = new Date(users.createdAt);
                     let time = timeCreated.getHours() + ':' + timeCreated.getMinutes();
-                    let userImage = (users.avatarUrl == null & users.avatarUrl == undefined) ? 'https://via.placeholder.com/50' : users.avatarUrl;
+                    let userImage = (users.avatarUrl === null & users.avatarUrl === undefined) ? 'https://via.placeholder.com/50' : users.avatarUrl;
 
                     return new Profile(
                         users.id,
