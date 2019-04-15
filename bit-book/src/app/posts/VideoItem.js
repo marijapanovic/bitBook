@@ -1,30 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const VideoItem = (props) => {
-    // const VideoItem = ({ post, showComments = false }) => {
-    const post = props.post;
-    //const visibleComments = props.showComments
-    // const id = props.match.params.id;
+
+const VideoItem = ({ post, showComments,handleDeletePost }) => {
     return (
         <div key={post.id} className="row cardItem">
             <div className="col s12 m6 l2"></div>
             <div className="col s12 m8 12">
-                <div className="card blue-grey darken-1">
-                    <div className="card-content white-text">
+                <div className="card grey">
+                    <div className="card-content white-text"> PostId: {post.id}
+                    <button className="secondary-content" 
+                    value={post.id} onClick={handleDeletePost} type="button" >x</button>
                         <iframe width="420" height="315" src={post.videoUrl}></iframe>
                     </div>
-                    {props.showComments ? <div>
+                    {showComments ? <div>
                         <Link to={`/posts/${post.id}`}>
                             <div className="card-action">
                                 <span>Video post</span> <span className="commentsPost">Comments : {post.comments.length} </span>
                             </div>
-                        </Link >
+                        </Link>
                     </div> :
-                        <div>
-                            <input type="text" placeholder="Add your comment" />
-                            <button type="submit">Send</button>
-                        </div>
+                        <div></div>
                     }
                 </div>
 
@@ -33,6 +30,11 @@ const VideoItem = (props) => {
         </div>
 
     )
-
+}
+VideoItem.propTypes = {
+    post: PropTypes.object,
+    showComments: PropTypes.bool,
+    handleDeletePost : PropTypes.func
+    
 }
 export default VideoItem

@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "../shared/constants";
+import { API_BASE_URL, HEADERS_API } from "../shared/constants";
 import { PostVideo, PostImage, PostText } from "../entities/Post";
 
 const createPost = post => {
@@ -20,7 +20,7 @@ const createPost = post => {
       post.imageUrl,
       post.comments
     );
-  } else if (post.type === "text") {
+  } else {
     return new PostText(
       post.id,
       post.userId,
@@ -29,18 +29,16 @@ const createPost = post => {
       post.text,
       post.comments
     );
-  } else {
-    throw Error("Invalid post type");
   }
+  //else {
+  //     throw Error("Invalid post type");
+  // }
 };
 
 export const fetchPosts = () => {
   return fetch(`${API_BASE_URL}/posts?_embed=comments`, {
     method: "GET",
-    headers: {
-      "content-type": "application/json",
-      "x-api-key": "B1tD3V"
-    }
+    HEADERS_API
   })
     .then(response => response.json())
     .then(postsArray => {
@@ -55,13 +53,17 @@ export const fetchPosts = () => {
 export const fetchPost = id => {
   return fetch(`${API_BASE_URL}/posts/${id}`, {
     method: "GET",
-    headers: {
-      "content-type": "application/json",
-      "x-api-key": "B1tD3V"
-    }
+    HEADERS_API
   })
     .then(response => response.json())
     .then(post => {
       return createPost(post);
     });
+};
+
+export const deletePost = (id, loadsPosts) => {
+  return fetch(`${API_BASE_URL}/posts/${id}`, {
+    method: "DELETE",
+    HEADERS_API
+  }).then(loadsPosts);
 };
