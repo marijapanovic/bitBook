@@ -18,10 +18,10 @@ class App extends Component {
   render() {
     return  (
       <div className="App">
-        {/* <Header /> */}
-        <RegisterAndLogin />
-        {/* <Main /> */}
-        {/* <Footer /> */}
+        <Header />
+        {/* <RegisterAndLogin /> */}
+        <Main />
+        <Footer />
       </div>
     )
   }
