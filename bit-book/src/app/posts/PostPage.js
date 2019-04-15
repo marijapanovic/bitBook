@@ -1,11 +1,13 @@
 import React from 'react';
-import { Modal } from 'react-materialize';
-import { fetchPosts } from '../../services/fetchPosts';
+//import { Modal, Button } from 'react-materialize';
 import PostList from './PostList';
-import { Link } from 'react-router-dom';
-import { ModalAdd } from './ModalAdd';
+import FloatingMenu from './FloatingMenu';
+// import { Fab, Icon, FabButtons, FabButton } from 'react-materialize';
+// import FloatingActionButton from 'material-ui/FloatingActionButton';
+// import ContentAdd from 'material-ui/svg-icons/content/add';
+//import { Link } from 'react-router-dom';
+//import { ModalAdd } from './ModalAdd';
 import { fetchPosts, deletePost } from '../../services/servicesPosts';
-import PostList from './PostList';
 
 class PostPage extends React.Component {
     constructor(props) {
@@ -30,19 +32,12 @@ class PostPage extends React.Component {
         deletePost(postId, this.loadsPosts);
     }
 
+
     render() {
-
-        const addButton = <Link to={ModalAdd} className="btn-floating btn-large halfway-fab waves-effect">
-            <i className="material-icons">add</i>
-        </Link>
-
         return (
             <>
-                <PostList posts={this.state.posts} />
-                <Modal header="New Post" trigger={addButton}>
-                    <input placeholder="insert text" />
-                </Modal>
-                < PostList posts={this.state.posts} handleDeletePost={this.handleDeletePost} />
+                <PostList posts={this.state.posts} handleDeletePost={this.handleDeletePost} />
+                {/* <FloatingMenu /> */}
             </>
         )
     }
