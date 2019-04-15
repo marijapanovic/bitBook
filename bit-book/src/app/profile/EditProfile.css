@@ -105,3 +105,10 @@ button.close {
   font-size: 24px;
   font-weight: bold;
 }
+
+/******* REQUIRED *********/
+
+.helper-text {
+  font-size: 0.8em;
+  color: red;
+}

@@ -6,8 +6,7 @@ import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
-// import updateProfile from '../../services/updateProfile';
+import Alert from "react-bootstrap/Alert";
 
 import "./EditProfile.css";
 import updateProfile from "../../services/updateProfile";
@@ -16,23 +15,13 @@ class EditProfile extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.handleShow = this.handleShow.bind(this);
-    // this.handleClose = this.handleClose.bind(this);
-
     this.state = {
       show: props.show,
       user: props.user,
       handleClose: props.handleClose,
       handleShow: props.handleShow,
-      getUser: props.getUser
-
-      //   avatarUrl: "",
-      //   namePrefix: "",
-      //   nameFirst: "",
-      //   nameLast: "",
-      //   aboutBio: "",
-      //   aboutJob: "",
-      //   aboutCountryCode: ""
+      getUser: props.getUser,
+      selectedFile: null
     };
   }
 
@@ -51,41 +40,33 @@ class EditProfile extends React.Component {
   editProfileInfo = event => {
     event.preventDefault();
     const { user } = this.state;
-    // const userProfile = {
-    //   ...user,
-    //   namePrefix: this.user.namePrefix,
-    //   nameFirst: this.user.nameFirst,
-    //   nameLast: this.user.nameLast,
-    //   aboutBio: this.user.aboutBio,
-    //   aboutJob: this.user.aboutJob,
-    //   aboutCountryCode: this.user.aboutCountryCode
-    // };
 
     const updatedUser = {
+      avatarUrl: user.avatarUrl,
       name: {
+        prefix: user.namePrefix,
         first: user.nameFirst,
         last: user.nameLast
+      },
+      about: {
+        job: user.aboutJob,
+        bio: user.aboutBio,
+        countryCode: user.aboutCountryCode
       }
     };
 
-    updateProfile(user.id, updatedUser)
-      .then(res => {
-        window.location.reload();
-      })
-      .catch(err => {});
-  };
+    const isEnabled = user.nameFirst.length > 0 && user.nameLast.length > 0;
 
-  // this.setState(prevState => ({
-  //     user: {
-  //         ...prevState.user,
-  //         namePrefix: this.user.namePrefix,
-  //         nameFirst: this.user.nameFirst,
-  //         nameLast: this.user.nameLast,
-  //         aboutBio: this.user.aboutBio,
-  //         aboutJob: this.user.aboutJob,
-  //         aboutCountryCode: this.user.aboutCountryCode,
-  //     }
-  // }))}
+    if (!isEnabled) {
+      alert("Please, fill required input");
+    } else {
+      updateProfile(user.id, updatedUser)
+        .then(res => {
+          window.location.reload();
+        })
+        .catch(err => {});
+    }
+  };
 
   changePrefixName = event => {
     const { user } = this.state;
@@ -153,8 +134,20 @@ class EditProfile extends React.Component {
     });
   };
 
+  fileSelectedHandler = event => {
+    this.setState({
+      selectedFile: event.target.files[0]
+    });
+  };
+
+  // fileUploadHandler = () => {
+  //   const fd = new FormData();
+  //   fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
+  //   avatarUrl.post()
+  // }
+
   render() {
-    const { user, show } = this.props;
+    const { show } = this.props;
     const {
       avatarUrl,
       namePrefix,
@@ -181,9 +174,17 @@ class EditProfile extends React.Component {
               <Form.Group controlId="formGroupPicture">
                 <Row>
                   <Col xs={6} md={4}>
-                    <Image src={avatarUrl} roundedCircle />
+                    <Image
+                      src={avatarUrl || this.fileSelectedHandler}
+                      roundedCircle
+                    />
                   </Col>
                 </Row>
+                <input
+                  type="file"
+                  onChange={this.fileSelectedHandler}
+                  ref={fileInput => (this.fileInput = fileInput)}
+                />
                 <Button variant="primary">Upload Image</Button>
               </Form.Group>
 
@@ -199,7 +200,6 @@ class EditProfile extends React.Component {
                       value={namePrefix}
                       name={namePrefix}
                       onChange={this.changePrefixName}
-                      required
                     />
                   </Col>
                   <Col>
@@ -210,8 +210,15 @@ class EditProfile extends React.Component {
                       value={nameFirst}
                       name={nameFirst}
                       onChange={this.changeFirstName}
-                      required
+                      data-length="10"
                     />
+                    <span
+                      className="helper-text"
+                      data-error="wrong"
+                      data-success="right"
+                    >
+                      * Required fill
+                    </span>
                   </Col>
                   <Col>
                     <Form.Label>Last Name</Form.Label>
@@ -221,8 +228,14 @@ class EditProfile extends React.Component {
                       value={nameLast}
                       name={nameLast}
                       onChange={this.changeLastName}
-                      required
                     />
+                    <span
+                      className="helper-text"
+                      data-error="wrong"
+                      data-success="right"
+                    >
+                      * Required fill
+                    </span>
                   </Col>
                 </Row>
               </Form.Group>
@@ -265,10 +278,14 @@ class EditProfile extends React.Component {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.props.handleClose}>
+            <Button variant="secondary" onClick={this.handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={this.editProfileInfo}>
+            <Button
+              variant="primary"
+              type="submit"
+              onClick={this.editProfileInfo}
+            >
               Update
             </Button>
           </Modal.Footer>
