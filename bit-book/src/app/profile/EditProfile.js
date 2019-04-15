@@ -199,6 +199,7 @@ class EditProfile extends React.Component {
                       value={namePrefix}
                       name={namePrefix}
                       onChange={this.changePrefixName}
+                      required
                     />
                   </Col>
                   <Col>
@@ -209,6 +210,7 @@ class EditProfile extends React.Component {
                       value={nameFirst}
                       name={nameFirst}
                       onChange={this.changeFirstName}
+                      required
                     />
                   </Col>
                   <Col>
@@ -219,6 +221,7 @@ class EditProfile extends React.Component {
                       value={nameLast}
                       name={nameLast}
                       onChange={this.changeLastName}
+                      required
                     />
                   </Col>
                 </Row>
