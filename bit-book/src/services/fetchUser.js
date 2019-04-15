@@ -15,7 +15,7 @@ const fetchUser = (id) => {
             const noOfComments = user.comments.length;
             const noOfPosts = user.posts.length;
 
-            return new Profile(user.id, user.sid, user.email, user.createdAt, user.avatarUrl, user.about.bio, user.about.job, user.about.countryCode, user.name.prefix, user.name.first, user.name.last, noOfComments, noOfPosts)
+            return new Profile(user.id, user.sid, user.email, user.createdAt, user.avatarUrl, user.aboutBio, user.aboutJob, user.aboutCountryCode, user.name.prefix, user.name.first, user.name.last, noOfComments, noOfPosts)
         })
 }
 
