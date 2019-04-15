@@ -24,9 +24,9 @@ const fetchAllUsers = () => {
                         users.email,
                         time,
                         userImage,
-                        users.about.bio,
-                        users.about.job,
-                        users.about.countryCode,
+                        users.aboutBio,
+                        users.aboutJob,
+                        users.aboutCountryCode,
                         users.name.prefix,
                         users.name.first,
                         users.name.last)
