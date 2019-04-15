@@ -4,7 +4,7 @@ import PeoplePage from "../people/PeoplePage";
 import ProfilePage from "../profile/ProfilePage";
 import PostPage from "../posts/PostPage";
 import PostItem from "../posts/PostItem";
-// import UpdateProfile from "../profile/UpdateProfile";
+ //import UpdateProfile from "../profile/UpdateProfile";
 
 const Main = () => {
   return (

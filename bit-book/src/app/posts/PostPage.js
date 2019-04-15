@@ -31,7 +31,7 @@ class PostPage extends React.Component {
     }
 
     return (
-      <PostList
+      <PostList 
         posts={this.state.posts}
         handleDeletePost={this.handleDeletePost}
       />
