@@ -9,7 +9,7 @@ const Header = () => {
             <nav>
                 <div className="nav-wrapper">
                     <Link to='/'>
-                        <a className="brand-logo">Bitbook</a>
+                        <span className="brand-logo">Bitbook</span>
                     </Link>
                     <ul id="nav-mobile" className="right">
                         <li>

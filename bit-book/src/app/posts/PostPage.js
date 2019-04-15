@@ -1,19 +1,13 @@
 import React from 'react';
-//import { Modal, Button } from 'react-materialize';
 import PostList from './PostList';
-import FloatingMenu from './FloatingMenu';
-// import { Fab, Icon, FabButtons, FabButton } from 'react-materialize';
-// import FloatingActionButton from 'material-ui/FloatingActionButton';
-// import ContentAdd from 'material-ui/svg-icons/content/add';
-//import { Link } from 'react-router-dom';
-//import { ModalAdd } from './ModalAdd';
 import { fetchPosts, deletePost } from '../../services/servicesPosts';
+import Loading from '../components/Loading';
 
 class PostPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: []
+            posts: null
         }
     }
     loadsPosts = () => {
@@ -34,6 +28,10 @@ class PostPage extends React.Component {
 
 
     render() {
+      if (!this.state.posts) {
+        return <Loading />;
+      }
+
         return (
             <>
                 <PostList posts={this.state.posts} handleDeletePost={this.handleDeletePost} />
@@ -41,5 +39,6 @@ class PostPage extends React.Component {
             </>
         )
     }
+
 }
 export default PostPage;
