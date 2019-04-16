@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import loginUser from "../../services/loginUser";
 import "./RegisterAndLogin.css";
 
 class Login extends Component {
@@ -7,6 +8,7 @@ class Login extends Component {
     super();
 
     this.state = {
+      user: null,
       email: "",
       password: ""
     };
@@ -14,6 +16,20 @@ class Login extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentDidMount() {
+    // this.getUser();
+  }
+
+  // getUser = () => {
+  //   const id = this.props.match.params.userId;
+  //   fetchUser(body).then(user => {
+  //     console.log(user);
+  //     this.setState({
+  //       user
+  //     });
+  //   });
+  // };
 
   handleChange(event) {
     const target = event.target;
@@ -27,18 +43,12 @@ class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
   }
 
   render() {
     return (
       <div className="formCenter">
-        <form
-          onSubmit={this.handleSubmit}
-          className="formFields"
-        >
+        <form onSubmit={this.handleSubmit} className="formFields">
           <div className="formField">
             <label className="formFieldLabel" htmlFor="email">
               E-Mail Address
