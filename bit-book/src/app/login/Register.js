@@ -9,11 +9,11 @@ class Register extends Component {
     super(props);
 
     this.state = {
+      id: "",
       name: "",
       email: "",
       password: "",
       errorMsg: ""
-      // user: null
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -31,46 +31,29 @@ class Register extends Component {
     });
   }
 
-  handleSubmit(event) {
-    const { name, email, password } = this.state;
-    // const content = {
-    //   name: name,
-    //   password: password,
-    //   email: email
-    // };
-
-    event.preventDefault();
-
-    // const registerUser = {
-    //   name: "string",
-    //   email: "string",
-    //   password: "string"
-    // };
-
-    // if (
-    //   !this.validateFullName().valid &&
-    //   !this.validatePassword().valid &&
-    //   !this.validateEmail().valid
-    // ) {
-    //   registerUser(registerUser)
-    //     .than(res => {
-    //       console.log(res);
-    //     })
-    //     .catch(err => {
-    //       console.log(err);
-    //     });
-    // }
-  }
-
   getResponse = () => {
     registerUser(this.state)
       .then(res => {
-        console.log(res);
+        // console.log(res);
       })
       .catch(err => {
         console.log(err);
       });
   };
+
+  handleSubmit(event) {
+    // const { name, email, password } = this.state;
+
+    event.preventDefault();
+
+    if (
+      !this.validateFullName().valid &&
+      !this.validatePassword().valid &&
+      !this.validateEmail().valid
+    ) {
+      this.getResponse();
+    }
+  }
 
   validateFullName = name => {
     if (!name) {
