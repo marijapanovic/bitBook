@@ -12,8 +12,8 @@ class Register extends Component {
       name: "",
       email: "",
       password: "",
-      errorMsg: "",
-      user: null
+      errorMsg: ""
+      // user: null
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -63,12 +63,7 @@ class Register extends Component {
   }
 
   getResponse = () => {
-    const registerUser = {
-      name: "string",
-      email: "string",
-      password: "string"
-    };
-    registerUser(registerUser)
+    registerUser(this.state)
       .then(res => {
         console.log(res);
       })
