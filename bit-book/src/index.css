@@ -28,7 +28,8 @@ code {
 }
 
 .profile-picture img {
-  width: 30%;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
 }
 
@@ -68,35 +69,34 @@ code {
   margin-left: -10px;
 }
 
-.profile-posts, .profile-comments {
-  font-size: 1.2rem; 
+.profile-posts,
+.profile-comments {
+  font-size: 1.2rem;
 }
 .profile-posts {
   margin-bottom: 15px;
 }
- .cardItem {
-   width : 70%;
+.cardItem {
+  width: 70%;
 }
-.card-content{
+.card-content {
   margin: 0 auto;
-  width:100%;
-  
+  width: 100%;
 }
-.card-content img{
+.card-content img {
   width: 100%;
   margin: 0 auto;
 }
-.card-content iframe{
+.card-content iframe {
   width: 100%;
   margin: 0 auto;
 }
-.textPost{
+.textPost {
   text-align: center;
 }
-.commentsPost{
+.commentsPost {
   float: right;
-  padding : 0 10px;
-
+  padding: 0 10px;
 }
 
 /************* PEOPLE PAGE **************/
@@ -110,18 +110,30 @@ code {
   color: red;
 }
 
-.input-field input[type=search] ~ .material-icons {
+.input-field input[type="search"] ~ .material-icons {
   position: absolute;
   top: 8px;
   right: 1rem;
   color: red;
   cursor: pointer;
   font-size: 2rem;
-  -webkit-transition: .3s color;
-  transition: .3s color;
+  -webkit-transition: 0.3s color;
+  transition: 0.3s color;
 }
 
-.input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+.input:not([type]),
+input[type="text"]:not(.browser-default),
+input[type="password"]:not(.browser-default),
+input[type="email"]:not(.browser-default),
+input[type="url"]:not(.browser-default),
+input[type="time"]:not(.browser-default),
+input[type="date"]:not(.browser-default),
+input[type="datetime"]:not(.browser-default),
+input[type="datetime-local"]:not(.browser-default),
+input[type="tel"]:not(.browser-default),
+input[type="number"]:not(.browser-default),
+input[type="search"]:not(.browser-default),
+textarea.materialize-textarea {
   background-color: transparent;
   border: none;
   border-radius: 0;
@@ -135,13 +147,14 @@ code {
   box-shadow: none;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
-  -webkit-transition: border .3s, -webkit-box-shadow .3s;
-  transition: border .3s, -webkit-box-shadow .3s;
-  transition: box-shadow .3s, border .3s;
-  transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+  -webkit-transition: border 0.3s, -webkit-box-shadow 0.3s;
+  transition: border 0.3s, -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s, border 0.3s;
+  transition: box-shadow 0.3s, border 0.3s, -webkit-box-shadow 0.3s;
 }
 
-.collection .collection-item.avatar:not(.circle-clipper)>.circle, .collection .collection-item.avatar :not(.circle-clipper)>.circle {
+.collection .collection-item.avatar:not(.circle-clipper) > .circle,
+.collection .collection-item.avatar :not(.circle-clipper) > .circle {
   position: absolute;
   width: 65px;
   height: 65px;
@@ -169,94 +182,82 @@ code {
   float: right;
   padding-top: 10px;
 }
-/* Button add header */
 
-/* .waves-effect{
-  background-color: #ee6e73 !important;
-}
-.dropdownbtn{
-  background-color: #ee6e73 !important;
-} */
-/* Buttons for edit post */
+/********** LOADING - CUBE **********/
 
-.editButton{
-  bottom: 45px;
-  right: 24px;
-}
-.editPost{
-  opacity: 0 !important;
-  transform: scale(0.4) translateY(40px) translateX(0px) !important;
-}
-/* floating action buttton */
-
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
-
-html, body{
-  height: 100%;  
+.sk-cube-grid {
+  width: 140px;
+  height: 140px;
+  margin: 100px auto;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f1f1f1;
-  font-family: 'Roboto', sans-serif;
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #ee6e73;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 
-.container {
-	position: relative;
-	width: 320px;
-	height: 200px;
-	background: #ececec;
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%,
+  70%,
+  100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
 }
 
-.floating-menu {
-	position: absolute;
-	right: 8px;
-	bottom: 8px;
-	height: 42px;
-	text-align: right;
-	/*transition: height 250ms ease-in-out;*/
-}
-
-.floating-menu.open {
-	height: 150px;
-	overflow: hidden;
-}
-
-.floating-menu.open .floating-menu-item {
-	margin-top: 8px;
-}
-
-.floating-menu-item label{
-	display: inline-block;
-	margin-right: 8px;
-	padding: 4px 10px;
-	border-radius: 12px;
-	background: rgba(0,0,0,.25);
-	opacity: 0;
-	transition: opacity 250ms ease-in-out;
-}
-
-.floating-menu.open .floating-menu-item label {
-	opacity: 0.4;
-}
-
-.floating-menu-icon{
-	display: inline-block;
-	width: 42px;
-	height: 42px;
-	line-height: 42px;
-	vertical-align: middle;
-	background: #e53935;
-	border-radius: 50%;
-	border: none;
-	box-shadow: 0 2px 4px rgba(0,0,0,.2);
-	text-align: center;
-}
-
-.floating-menu-icon .material-icons {
-	font-size: 32px;
-	color: #fff;
-	vertical-align: middle;
+@keyframes sk-cubeGridScaleDelay {
+  0%,
+  70%,
+  100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
 }
