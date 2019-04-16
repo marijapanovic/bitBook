@@ -7,7 +7,7 @@ const registerUser = body => {
       "Content-Type": "application/json",
       "x-api-key": "B1tD3V"
     },
-    body: JSON.stringify(body)
+    body: body
   })
     .then(res => res.json())
     .then(data => data);
