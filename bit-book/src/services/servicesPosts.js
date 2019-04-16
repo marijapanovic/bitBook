@@ -45,7 +45,6 @@ export const fetchPosts = () => {
       const posts = postsArray.map(post => {
         return createPost(post);
       });
-
       return posts;
     });
 };
@@ -67,3 +66,54 @@ export const deletePost = (id, loadsPosts) => {
     HEADERS_API
   }).then(loadsPosts);
 };
+
+export const postPostText =(body, numOfPosts, type) =>{
+  const post ={
+    id: numOfPosts + 1,
+    //sid: Math.floor(Math.random() * 100000),
+    userId : 2,
+    createdAt: new Date().toLocaleTimeString(),
+    type: type,
+    imageUrl: null,
+    videoUrl: null,
+    text : body
+  };
+  return fetch(`${API_BASE_URL}/posts`,{
+    method : "POST",
+    text : JSON.stringify(post), HEADERS_API
+  })
+}
+
+export const postPostVideo =(body, numOfPosts, type) =>{
+  const post ={
+    id: numOfPosts + 1,
+    //sid: Math.floor(Math.random() * 100000),
+    userId : 2,
+    createdAt: new Date().toLocaleTimeString(),
+    type: type,
+    imageUrl: null,
+    videoUrl: body,
+    text : null
+  };
+  return fetch(`${API_BASE_URL}/posts`,{
+    method : "POST",
+    text : JSON.stringify(post), HEADERS_API
+  })
+}
+
+export const postPostImage=(body, numOfPosts, type) =>{
+  const post ={
+    id: numOfPosts + 1,
+    //sid: Math.floor(Math.random() * 100000),
+    userId : 2,
+    createdAt: new Date().toLocaleTimeString(),
+    type: type,
+    imageUrl: body,
+    videoUrl: null,
+    text : null
+  };
+  return fetch(`${API_BASE_URL}/posts`,{
+    method : "POST",
+    text : JSON.stringify(post), HEADERS_API
+  })
+}

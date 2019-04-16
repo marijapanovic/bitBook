@@ -4,16 +4,24 @@ import VideoItem from './VideoItem';
 import ImageItem from './ImageItem';
 import TextItem from './TextItem';
 
-const PostList = ({ posts, handleDeletePost}) => (
+function isTypeFiltered(type, filter) {
+    return (filter === null || filter === type);
+}
+
+const PostList = ({ posts, filter, handleDeletePost}) => (
     posts.map(post => {
-        if (post.type === 'video') {
-            return <VideoItem key={post.id} post={post} showComments={true} handleDeletePost ={handleDeletePost}/>
-        }
-        else if (post.type === 'text') {
-            return <TextItem key={post.id} post={post} showComments={true} handleDeletePost ={handleDeletePost}/>
-        }
-        else {
-            return <ImageItem key={post.id} post={post} showComments={true} handleDeletePost ={handleDeletePost}/>
+        if (isTypeFiltered(post.type, filter)) {
+            if (post.type === 'video') {
+                return <VideoItem key={post.id} post={post} showComments={true} handleDeletePost ={handleDeletePost}/>
+            }
+            else if (post.type === 'text') {
+                return <TextItem key={post.id} post={post} showComments={true} handleDeletePost ={handleDeletePost}/>
+            }
+            else {
+                return <ImageItem key={post.id} post={post} showComments={true} handleDeletePost ={handleDeletePost}/>
+            }            
+        } else {
+            return <></>
         }
     })
 )
