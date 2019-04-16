@@ -93,11 +93,11 @@ export const postPostVideo =(body, numOfPosts, type) =>{
     type: type,
     imageUrl: null,
     videoUrl: body,
-    text : null
+    body : null
   };
   return fetch(`${API_BASE_URL}/posts`,{
     method : "POST",
-    text : JSON.stringify(post), HEADERS_API
+    videoUrl : JSON.stringify(post), HEADERS_API
   })
 }
 
@@ -114,6 +114,6 @@ export const postPostImage=(body, numOfPosts, type) =>{
   };
   return fetch(`${API_BASE_URL}/posts`,{
     method : "POST",
-    text : JSON.stringify(post), HEADERS_API
+    imageUrl : JSON.stringify(post), HEADERS_API
   })
 }
