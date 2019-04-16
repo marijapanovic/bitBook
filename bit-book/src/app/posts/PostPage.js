@@ -3,18 +3,20 @@ import PostList from './PostList';
 import { fetchPosts, deletePost, postPostText, postPostVideo, postPostImage } from '../../services/servicesPosts';
 import Loading from '../components/Loading';
 import { Dropdown, Button, Modal } from 'react-materialize';
+import NewTextPostForm from './NewTextPostForm';
+import NewVideoPostForm from './NewVideoPostForm';
+
 class PostPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             posts: null,
-            postContent: ""
-        }
+        };
     }
     loadsPosts = () => {
         fetchPosts()
             .then((posts) => {
-                this.setState({
+                this.setState({ 	
                     posts: posts,
                     filter: null
                 })
@@ -38,20 +40,7 @@ class PostPage extends React.Component {
     //     event.preventDefault();
     // }
 
-    createPost = (type) => {
-        console.log(type);
-    }
-    handleChange = (event) => {
-        this.setState({
-            postContent: event.target.value
-        })
-    }
-    createNewPost = (event) => {
-        event.preventDefault();
-
-    }
-
-
+    
     render() {
         if (!this.state.posts) {
             return <Loading />;
@@ -67,15 +56,17 @@ class PostPage extends React.Component {
                 <Dropdown className="nav-wrapper" trigger={<Button>+</Button>}>
                     <Modal header="Create text post"
                         trigger={<Button>Text</Button>}
-                        actions={[<Button modal="close">Close</Button>, <Button onClick={() => postPostText("text")}>Submit</Button>]}
+                        options={{ preventScrolling: false }}
+                        actions={[<Button modal="close">Close</Button>]}
                     >
-                        <input type="text" value={this.state.postContent} onChange={this.handleChange} placeholder="create text post" />
+                        <NewTextPostForm loadsPosts={this.loadsPosts} />
                     </Modal>
                     <Modal header="Create video post"
                         trigger={<Button>Video</Button>}
-                        actions={[<Button modal="close">Close</Button>, <Button onClick={() => this.createPost("video")}>Submit</Button>]}
+                        options={{ preventScrolling: false }}
+                        actions={[<Button modal="close">Close</Button>]}
                     >
-                        <input type="url" placeholder="create video post" />
+                        <NewVideoPostForm loadsPosts={this.loadsPosts} />
                     </Modal>
                     <Modal header="Create image post"
                         trigger={<Button>Image</Button>}

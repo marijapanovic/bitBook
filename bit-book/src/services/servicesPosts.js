@@ -67,9 +67,9 @@ export const deletePost = (id, loadsPosts) => {
   }).then(loadsPosts);
 };
 
-export const postPostText = (type, postContent) => {
+export const postPostText = (postContent) => {
   const apiPost = {
-    type: type,
+    type: "text",
     text: postContent,
     isPublic: true,
   };
@@ -81,9 +81,9 @@ export const postPostText = (type, postContent) => {
   })
 }
 
-export const postPostVideo = (type, postContent) => {
+export const postPostVideo = (postContent) => {
   const apiPost = {
-    type: type,
+    type: "video",
     videoUrl: postContent,
     isPublic: true,
   };
@@ -94,9 +94,9 @@ export const postPostVideo = (type, postContent) => {
   })
 }
 
-export const postPostImage = (type, postContent) => {
+export const postPostImage = (postContent) => {
   const apiPost = {
-    type: type,
+    type: "image",
     imageUrl: postContent,
   };
   return fetch(`${API_BASE_URL}/posts`, {
