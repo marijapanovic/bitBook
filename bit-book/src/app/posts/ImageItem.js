@@ -9,7 +9,7 @@ const ImageItem = ({ post, showComments, handleDeletePost }) => {
             <div className="col s12 m8 12">
                 <div className="card grey">
                     <div className="card-content white-text">
-                    <button className="secondary-content" value={post.id} onClick={handleDeletePost}  type="button">x</button>
+                        <button className="secondary-content" value={post.id} onClick={handleDeletePost} type="button">x</button>
                         <img src={post.imageUrl} alt="" />
                     </div>
                     {showComments ?
@@ -32,4 +32,4 @@ ImageItem.propTypes = {
     showComments: PropTypes.bool,
     handleDeletePost: PropTypes.func
 }
-export default ImageItem
+export default ImageItem;
