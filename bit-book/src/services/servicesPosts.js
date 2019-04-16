@@ -52,7 +52,7 @@ export const fetchPosts = () => {
 export const fetchPost = id => {
   return fetch(`${API_BASE_URL}/posts/${id}`, {
     method: "GET",
-    HEADERS_API
+    ...HEADERS_API
   })
     .then(response => response.json())
     .then(post => {
@@ -63,57 +63,45 @@ export const fetchPost = id => {
 export const deletePost = (id, loadsPosts) => {
   return fetch(`${API_BASE_URL}/posts/${id}`, {
     method: "DELETE",
-    HEADERS_API
+    ...HEADERS_API
   }).then(loadsPosts);
 };
 
-export const postPostText =(body, numOfPosts, type) =>{
-  const post ={
-    id: numOfPosts + 1,
-    //sid: Math.floor(Math.random() * 100000),
-    userId : 2,
-    createdAt: new Date().toLocaleTimeString(),
+export const postPostText = (type, postContent) => {
+  const apiPost = {
     type: type,
-    imageUrl: null,
-    videoUrl: null,
-    text : body
+    text: postContent,
+    isPublic: true,
   };
-  return fetch(`${API_BASE_URL}/posts`,{
-    method : "POST",
-    text : JSON.stringify(post), HEADERS_API
+
+  return fetch(`${API_BASE_URL}/posts`, {
+    method: "POST",
+    body: JSON.stringify(apiPost),
+    ...HEADERS_API
   })
 }
 
-export const postPostVideo =(body, numOfPosts, type) =>{
-  const post ={
-    id: numOfPosts + 1,
-    //sid: Math.floor(Math.random() * 100000),
-    userId : 2,
-    createdAt: new Date().toLocaleTimeString(),
+export const postPostVideo = (type, postContent) => {
+  const apiPost = {
     type: type,
-    imageUrl: null,
-    videoUrl: body,
-    body : null
+    videoUrl: postContent,
+    isPublic: true,
   };
-  return fetch(`${API_BASE_URL}/posts`,{
-    method : "POST",
-    videoUrl : JSON.stringify(post), HEADERS_API
+  return fetch(`${API_BASE_URL}/posts`, {
+    method: "POST",
+    body: JSON.stringify(apiPost),
+    ...HEADERS_API
   })
 }
 
-export const postPostImage=(body, numOfPosts, type) =>{
-  const post ={
-    id: numOfPosts + 1,
-    //sid: Math.floor(Math.random() * 100000),
-    userId : 2,
-    createdAt: new Date().toLocaleTimeString(),
+export const postPostImage = (type, postContent) => {
+  const apiPost = {
     type: type,
-    imageUrl: body,
-    videoUrl: null,
-    text : null
+    imageUrl: postContent,
   };
-  return fetch(`${API_BASE_URL}/posts`,{
-    method : "POST",
-    imageUrl : JSON.stringify(post), HEADERS_API
+  return fetch(`${API_BASE_URL}/posts`, {
+    method: "POST",
+    body: JSON.stringify(apiPost),
+    ...HEADERS_API
   })
 }
