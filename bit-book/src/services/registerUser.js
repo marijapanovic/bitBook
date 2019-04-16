@@ -1,15 +1,14 @@
-// import { API_BASE_URL } from "../shared/constants";
+import { API_BASE_URL } from "../shared/constants";
 // import jwt_decode from "jwt-decode";
 
 const registerUser = body => {
   const registerUser = {
-    // id: body.id,
     name: body.name,
     email: body.email,
     password: body.password
   };
   return (
-    fetch("https://book-api.hypetech.xyz/v1/auth/register", {
+    fetch(`${API_BASE_URL}/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

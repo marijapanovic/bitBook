@@ -143,6 +143,7 @@
 }
 
 .helper-text {
-  font-size: 20px;
-  color: red;
+  font-size: 12px;
+  color: #ee6e73;
+  padding-bottom: 40px;
 }

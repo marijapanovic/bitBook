@@ -104,9 +104,9 @@ class Register extends Component {
               onChange={this.handleChange}
               error={validateFullName}
               autoComplete="off"
-            />
+            /><span className="helper-text" data-error={validateFullName || ""}>{validateFullName || ""}</span>
+          
           </div>
-          <span className="helper-text" data-error={validateFullName || ""} />
           <div className="formField">
             <label className="formFieldLabel" htmlFor="password">
               Password
@@ -122,9 +122,9 @@ class Register extends Component {
               error={validatePassword}
               autoComplete="off"
             />
-          </div>
-          <span className="helper-text" data-error={validatePassword || ""} />
+          <span className="helper-text" data-error={validatePassword || ""}>{validatePassword || ""}</span>
           <div className="formField">
+          </div>
             <label className="formFieldLabel" htmlFor="email">
               E-Mail Address
             </label>
@@ -139,8 +139,8 @@ class Register extends Component {
               error={validateEmail}
               autoComplete="off"
             />
+          <span className="helper-text" data-error={validateEmail || ""}>{validateEmail || ""}</span>
           </div>
-          <span className="helper-text" data-error={validateEmail || ""} />
 
           <div className="formField">
             <button

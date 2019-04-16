@@ -4,8 +4,8 @@ import loginUser from "../../services/loginUser";
 import "./RegisterAndLogin.css";
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       user: null,
