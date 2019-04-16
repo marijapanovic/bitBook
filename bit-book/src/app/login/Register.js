@@ -41,26 +41,41 @@ class Register extends Component {
 
     event.preventDefault();
 
+    // const registerUser = {
+    //   name: "string",
+    //   email: "string",
+    //   password: "string"
+    // };
+
+    // if (
+    //   !this.validateFullName().valid &&
+    //   !this.validatePassword().valid &&
+    //   !this.validateEmail().valid
+    // ) {
+    //   registerUser(registerUser)
+    //     .than(res => {
+    //       console.log(res);
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     });
+    // }
+  }
+
+  getResponse = () => {
     const registerUser = {
       name: "string",
       email: "string",
       password: "string"
     };
-
-    if (
-      !this.validateFullName().valid &&
-      !this.validatePassword().valid &&
-      !this.validateEmail().valid
-    ) {
-      registerUser(registerUser)
-        .than(res => {
-          console.log(res);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-  }
+    registerUser(registerUser)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   validateFullName = name => {
     if (!name) {
@@ -153,7 +168,7 @@ class Register extends Component {
             <button
               className="formFieldButton mr-20"
               type="submit"
-              onClick={this.handleSubmit}
+              onClick={this.getResponse}
             >
               Register
             </button>
