@@ -45,7 +45,6 @@ export const fetchPosts = () => {
       const posts = postsArray.map(post => {
         return createPost(post);
       });
-
       return posts;
     });
 };
@@ -53,7 +52,7 @@ export const fetchPosts = () => {
 export const fetchPost = id => {
   return fetch(`${API_BASE_URL}/posts/${id}`, {
     method: "GET",
-    HEADERS_API
+    ...HEADERS_API
   })
     .then(response => response.json())
     .then(post => {
@@ -64,6 +63,45 @@ export const fetchPost = id => {
 export const deletePost = (id, loadsPosts) => {
   return fetch(`${API_BASE_URL}/posts/${id}`, {
     method: "DELETE",
-    HEADERS_API
+    ...HEADERS_API
   }).then(loadsPosts);
 };
+
+export const postPostText = (postContent) => {
+  const apiPost = {
+    type: "text",
+    text: postContent,
+    isPublic: true,
+  };
+
+  return fetch(`${API_BASE_URL}/posts`, {
+    method: "POST",
+    body: JSON.stringify(apiPost),
+    ...HEADERS_API
+  })
+}
+
+export const postPostVideo = (postContent) => {
+  const apiPost = {
+    type: "video",
+    videoUrl: postContent,
+    isPublic: true,
+  };
+  return fetch(`${API_BASE_URL}/posts`, {
+    method: "POST",
+    body: JSON.stringify(apiPost),
+    ...HEADERS_API
+  })
+}
+
+export const postPostImage = (postContent) => {
+  const apiPost = {
+    type: "image",
+    imageUrl: postContent,
+  };
+  return fetch(`${API_BASE_URL}/posts`, {
+    method: "POST",
+    body: JSON.stringify(apiPost),
+    ...HEADERS_API
+  })
+}

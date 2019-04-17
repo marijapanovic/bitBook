@@ -9,8 +9,7 @@ const TextItem = ({ post, showComments, handleDeletePost }) => {
             <div className="col s12 m8 12 ">
                 <div className="card grey">
                     <div className="card-content white-text textPost">
-                    PostId: {post.id}
-                    <button className="secondary-content" value={post.id} onClick={handleDeletePost} type="button">x</button>
+                        <button className="secondary-content" value={post.id} onClick={handleDeletePost} type="button">x</button>
                         <p>{post.text}</p>
                     </div>
                     {showComments ?
@@ -33,6 +32,6 @@ const TextItem = ({ post, showComments, handleDeletePost }) => {
 TextItem.propTypes = {
     post: PropTypes.object,
     showComments: PropTypes.bool,
-    
+
 }
 export default TextItem
