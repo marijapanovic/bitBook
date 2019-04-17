@@ -1,6 +1,6 @@
 import React from 'react';
 import PostList from './PostList';
-import { fetchPosts, deletePost, postPostText, postPostVideo, postPostImage } from '../../services/servicesPosts';
+import { fetchPosts, deletePost } from '../../services/servicesPosts';
 import Loading from '../components/Loading';
 import { Dropdown, Button, Modal } from 'react-materialize';
 import NewTextPostForm from './NewTextPostForm';
@@ -11,13 +11,13 @@ class PostPage extends React.Component {
         super(props);
         this.state = {
             posts: null,
-            filter:null
+            filter: null
         };
     }
     loadsPosts = () => {
         fetchPosts()
             .then((posts) => {
-                this.setState({ 	
+                this.setState({
                     posts: posts,
                 })
             })
@@ -30,17 +30,17 @@ class PostPage extends React.Component {
         deletePost(postId, this.loadsPosts);
     }
 
-    // filterFeed = (event) => {
-    //     const filterType = event.target.text.toLowerCase();
-    //     if (filterType !== this.state.filter) {
-    //         this.setState({filter: event.target.text.toLowerCase()});
-    //     } else {
-    //         this.setState({filter: null});
-    //     }
-    //    // event.preventDefault();
-    // }
+    filterFeed = (event) => {
+        const filterType = event.target.text.toLowerCase();
+        if (filterType !== this.state.filter) {
+            this.setState({ filter: event.target.text.toLowerCase() });
+        } else {
+            this.setState({ filter: null });
+        }
+        // event.preventDefault();
+    }
 
-    
+
     render() {
         if (!this.state.posts) {
             return <Loading />;
@@ -48,11 +48,11 @@ class PostPage extends React.Component {
 
         return (
             <>
-                {/* <Dropdown className="nav-wrapper" trigger={<Button>Posts</Button>}>
+                <Dropdown className="nav-wrapper" trigger={<Button>Posts</Button>}>
                     <a href="#" onClick={this.filterFeed}>Text</a>
                     <a href="#" onClick={this.filterFeed}>Image</a>
                     <a href="#" onClick={this.filterFeed}>Video</a>
-                </Dropdown> */}
+                </Dropdown>
                 <Dropdown className="nav-wrapper" trigger={<Button>+</Button>}>
                     <Modal header="Create text post"
                         trigger={<Button>Text</Button>}
