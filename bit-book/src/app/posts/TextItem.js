@@ -32,6 +32,6 @@ const TextItem = ({ post, showComments, handleDeletePost }) => {
 TextItem.propTypes = {
     post: PropTypes.object,
     showComments: PropTypes.bool,
-
+    handleDeletePost: PropTypes.func
 }
 export default TextItem

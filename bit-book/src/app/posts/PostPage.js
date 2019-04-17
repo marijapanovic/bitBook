@@ -54,6 +54,7 @@ class PostPage extends React.Component {
                     <a href="#" onClick={this.filterFeed}>Image</a>
                     <a href="#" onClick={this.filterFeed}>Video</a>
                 </Dropdown>
+
                 <Dropdown className="nav-wrapper" trigger={<Button>+</Button>}>
                     <Modal header="Create text post"
                         trigger={<Button>Text</Button>}
@@ -76,6 +77,7 @@ class PostPage extends React.Component {
                         <input type="url" placeholder="create image post" />
                     </Modal>
                 </Dropdown>
+
                 <PostList posts={this.state.posts} filter={this.state.filter} handleDeletePost={this.handleDeletePost} />
             </>
         )

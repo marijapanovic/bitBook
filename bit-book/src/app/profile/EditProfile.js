@@ -38,7 +38,7 @@ class EditProfile extends React.Component {
   editProfileInfo = event => {
     event.preventDefault();
     const { user } = this.state;
-    const { selectedImage } = this.state;
+    // const { selectedImage } = this.state;
 
     const updatedUser = {
       avatarUrl: user.avatarUrl,
@@ -54,7 +54,7 @@ class EditProfile extends React.Component {
       }
     };
 
-    selectedImage && this.uploadHandler();
+    // selectedImage && this.uploadHandler();
 
     const isEnabled = user.nameFirst.length > 0 && user.nameLast.length > 0;
 
@@ -65,7 +65,7 @@ class EditProfile extends React.Component {
         .then(res => {
           window.location.reload();
         })
-        .catch(err => {});
+        .catch(err => { console.log(err); });
     }
   };
 

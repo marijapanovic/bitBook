@@ -38,7 +38,7 @@ const createPost = post => {
 export const fetchPosts = () => {
   return fetch(`${API_BASE_URL}/posts?_embed=comments`, {
     method: "GET",
-    HEADERS_API
+    ...HEADERS_API
   })
     .then(response => response.json())
     .then(postsArray => {

@@ -22,7 +22,7 @@ class PeoplePage extends React.Component {
                     allUsers: users,
                     users: users
                 })
-                console.log(users)
+                // console.log(users)
             })
     }
 
@@ -42,8 +42,8 @@ class PeoplePage extends React.Component {
 
         if (!this.state.users) {
             return <Loading />;
-          }
-          
+        }
+
         return (
 
             <div className='container'>

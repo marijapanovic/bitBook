@@ -3,7 +3,8 @@ import { Comment } from '../entities/Comment';
 
 export const fetchComments = (id) => {
     return fetch(`${API_BASE_URL}/comments?postId=${id}&_expand=user`, {
-        method: "GET", HEADERS_API
+        method: "GET",
+        ...HEADERS_API
     })
         .then(response => response.json())
         .then(commentsArray => {
@@ -27,13 +28,15 @@ export const postComment = (postId, text) => {
 
     return fetch(`${API_BASE_URL}/comments`, {
         method: "POST",
-        body: JSON.stringify(comment), HEADERS_API
+        body: JSON.stringify(comment),
+        ...HEADERS_API
     })
 }
 
 export const deleteComment = (commentId, loadComments) => {
     return fetch(`${API_BASE_URL}/comments/${commentId}`, {
-        method: "DELETE", HEADERS_API
+        method: "DELETE",
+        ...HEADERS_API
     })
-    .then(loadComments);
+        .then(loadComments);
 }
