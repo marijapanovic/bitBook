@@ -11,6 +11,7 @@ class PostPage extends React.Component {
         super(props);
         this.state = {
             posts: null,
+            filter:null
         };
     }
     loadsPosts = () => {
@@ -18,7 +19,6 @@ class PostPage extends React.Component {
             .then((posts) => {
                 this.setState({ 	
                     posts: posts,
-                    filter: null
                 })
             })
     }
@@ -37,7 +37,7 @@ class PostPage extends React.Component {
     //     } else {
     //         this.setState({filter: null});
     //     }
-    //     event.preventDefault();
+    //    // event.preventDefault();
     // }
 
     
