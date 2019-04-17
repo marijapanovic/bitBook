@@ -1,8 +1,8 @@
 const isUserLogged = () => {
-    if (localStorage.getItem("sessionId")) {
-      return true;
-    }
-    return false;
-  };
+  if (localStorage.getItem("id")) {
+    return true;
+  }
+  return false;
+};
 
-  export default isUserLogged;
+export default isUserLogged;

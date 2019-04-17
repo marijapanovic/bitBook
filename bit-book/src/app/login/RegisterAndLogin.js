@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
+
 import Register from "./Register";
 import Login from "./Login";
 

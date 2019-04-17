@@ -2,7 +2,9 @@ import Profile from "../entities/Profile";
 import { API_BASE_URL } from "../shared/constants";
 
 const fetchUser = id => {
-  return fetch(`${API_BASE_URL}/users/${id}?_embed[]=posts&_embed[]=comments`, {
+  const userId = id || 2;
+
+  return fetch(`${API_BASE_URL}/users/${userId}?_embed[]=posts&_embed[]=comments`, {
     method: "GET",
     headers: {
       "content-type": "application/json",
