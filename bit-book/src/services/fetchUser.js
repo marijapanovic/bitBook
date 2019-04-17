@@ -1,5 +1,5 @@
-import Profile from '../entities/Profile';
-import { API_BASE_URL } from '../shared/constants';
+import Profile from "../entities/Profile";
+import { API_BASE_URL } from "../shared/constants";
 
 const fetchUser = (id) => {
   const userId = id || 2;

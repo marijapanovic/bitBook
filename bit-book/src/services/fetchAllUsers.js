@@ -11,7 +11,7 @@ const fetchAllUsers = () => {
     })
         .then(res => res.json())
         .then((usersArray) => {
-            // console.log(usersArray)
+            console.log(usersArray)
             const users = usersArray
                 .map((users) => {
                     let timeCreated = new Date(users.createdAt);

@@ -7,7 +7,7 @@ class PostPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: null
+      posts: null,
     };
   }
   loadsPosts = () => {
