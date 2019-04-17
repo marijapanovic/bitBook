@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import loginUser from "../../services/loginUser";
+// import loginUser from "../../services/loginUser";
 import "./RegisterAndLogin.css";
 
 class Login extends Component {
@@ -8,7 +8,6 @@ class Login extends Component {
     super(props);
 
     this.state = {
-      user: null,
       email: "",
       password: ""
     };

@@ -51,7 +51,7 @@ class Register extends Component {
       !this.validatePassword().valid &&
       !this.validateEmail().valid
     ) {
-      this.getResponse();
+      return this.getResponse();
     }
   }
 
@@ -105,7 +105,7 @@ class Register extends Component {
               error={validateFullName}
               autoComplete="off"
             /><span className="helper-text" data-error={validateFullName || ""}>{validateFullName || ""}</span>
-          
+
           </div>
           <div className="formField">
             <label className="formFieldLabel" htmlFor="password">
@@ -122,9 +122,9 @@ class Register extends Component {
               error={validatePassword}
               autoComplete="off"
             />
-          <span className="helper-text" data-error={validatePassword || ""}>{validatePassword || ""}</span>
-          <div className="formField">
-          </div>
+            <span className="helper-text" data-error={validatePassword || ""}>{validatePassword || ""}</span>
+            <div className="formField">
+            </div>
             <label className="formFieldLabel" htmlFor="email">
               E-Mail Address
             </label>
@@ -139,7 +139,7 @@ class Register extends Component {
               error={validateEmail}
               autoComplete="off"
             />
-          <span className="helper-text" data-error={validateEmail || ""}>{validateEmail || ""}</span>
+            <span className="helper-text" data-error={validateEmail || ""}>{validateEmail || ""}</span>
           </div>
 
           <div className="formField">

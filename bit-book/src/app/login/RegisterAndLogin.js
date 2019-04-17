@@ -9,7 +9,7 @@ import "./RegisterAndLogin.css";
 class RegisterAndLogin extends Component {
   render() {
     return (
-      <Router basename="/bit-book/">
+      <Router>
         <div className="app">
           <div className="appAside">
             <h2>BitBook</h2>
@@ -35,8 +35,7 @@ class RegisterAndLogin extends Component {
                 Login
               </NavLink>
               <NavLink
-                exact
-                to="/"
+                to="/register"
                 activeClassName="pageSwitcherItem--Active"
                 className="pageSwitcherItem"
               >
@@ -54,8 +53,7 @@ class RegisterAndLogin extends Component {
               </NavLink>{" "}
               or{" "}
               <NavLink
-                exact
-                to="/"
+                to="/register"
                 activeClassName="formTitleLink--Active"
                 className="formTitleLink"
               >
@@ -63,7 +61,7 @@ class RegisterAndLogin extends Component {
               </NavLink>
             </div>
 
-            <Route exact path="/" component={Register} />
+            <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
           </div>
         </div>
