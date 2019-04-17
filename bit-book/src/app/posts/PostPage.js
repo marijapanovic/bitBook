@@ -46,6 +46,7 @@ class PostPage extends React.Component {
             return <Loading />;
         }
 
+
         return (
             <>
                 <Dropdown className="nav-wrapper" trigger={<Button>Posts</Button>}>

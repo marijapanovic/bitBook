@@ -1,18 +1,9 @@
 import React from "react";
-
-import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Image from "react-bootstrap/Image";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 import fetchUser from "../../services/fetchUser";
-// import updateProfile from '../../services/updateProfile';
-
 import EditProfile from "./EditProfile";
 import Loading from '../components/Loading';
-
 
 import "./EditProfile.css";
 
