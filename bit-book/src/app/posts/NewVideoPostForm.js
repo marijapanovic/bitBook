@@ -13,7 +13,7 @@ class NewVideoPostForm extends React.Component {
 
     createVideoPost = (event) => {
         event.preventDefault();
-        let formData = new FormData(event.target);
+        const formData = new FormData(event.target);
         let postText = formData.get("postVideo");
         if (postText.startsWith("https://www.youtube.com")) {
             this.setState({error: null});

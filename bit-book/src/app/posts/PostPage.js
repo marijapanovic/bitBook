@@ -5,7 +5,7 @@ import Loading from '../components/Loading';
 import { Dropdown, Button, Modal } from 'react-materialize';
 import NewTextPostForm from './NewTextPostForm';
 import NewVideoPostForm from './NewVideoPostForm';
-
+import NewImagePostForm from './NewImagePostForm';
 class PostPage extends React.Component {
     constructor(props) {
         super(props);
@@ -37,7 +37,7 @@ class PostPage extends React.Component {
         } else {
             this.setState({ filter: null });
         }
-        // event.preventDefault();
+        event.preventDefault();
     }
 
 
@@ -59,22 +59,20 @@ class PostPage extends React.Component {
                     <Modal header="Create text post"
                         trigger={<Button>Text</Button>}
                         options={{ preventScrolling: false }}
-                        actions={[<Button modal="close">Close</Button>]}
                     >
                         <NewTextPostForm loadsPosts={this.loadsPosts} />
                     </Modal>
                     <Modal header="Create video post"
                         trigger={<Button>Video</Button>}
                         options={{ preventScrolling: false }}
-                        actions={[<Button modal="close">Close</Button>]}
                     >
                         <NewVideoPostForm loadsPosts={this.loadsPosts} />
                     </Modal>
                     <Modal header="Create image post"
                         trigger={<Button>Image</Button>}
-                        actions={[<Button modal="close">Close</Button>, <Button onClick={() => this.createPost("image")}>Submit</Button>]}
+                        options={{ preventScrolling: false }}
                     >
-                        <input type="url" placeholder="create image post" />
+                        <NewImagePostForm loadsPosts={this.loadsPosts}/>
                     </Modal>
                 </Dropdown>
 

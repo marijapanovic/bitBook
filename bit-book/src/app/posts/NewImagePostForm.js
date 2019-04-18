@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from 'react-materialize';
-import { postPostText } from '../../services/servicesPosts';
+import { postPostImage } from '../../services/servicesPosts';
+import { PostImage } from '../../entities/Post';
 
-class NewTextPostForm extends React.Component {
+class NewImagePostForm extends React.Component {
 
     constructor(props) {
         super(props);
@@ -11,17 +12,17 @@ class NewTextPostForm extends React.Component {
         };
     }
 
-    createTextPost = (event) => {
+    createImagePost = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
-        const postText = formData.get("postText");
+        const postText = formData.get("postImage");
         if(postText.length > 0){
-            postPostText(postText)
+            postPostImage(postText)
             .then(this.props.loadsPosts);
         }
         else{
             this.setState({
-                error : "Nije moguce kreirati prazan post, unesite neki text."
+                error : "Nije moguce kreirati prazan post, unesite url za sliku."
             })
         }
     }
@@ -33,8 +34,8 @@ class NewTextPostForm extends React.Component {
         }
         return (
             <>
-                <form onSubmit={this.createTextPost}>
-                    <input name="postText" type="text" placeholder="create text post" />{errorMessage}
+                <form onSubmit={this.createImagePost}>
+                    <input name="postImage" type="url" placeholder="create image post" />{errorMessage}
                     <Button type='submit'>Send</Button>
                 </form>
             </>
@@ -42,4 +43,4 @@ class NewTextPostForm extends React.Component {
     }
 }
 
-export default NewTextPostForm;
+export default NewImagePostForm;
