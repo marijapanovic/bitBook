@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from 'react-materialize';
 import { postPostImage } from '../../services/servicesPosts';
-import { PostImage } from '../../entities/Post';
 
 class NewImagePostForm extends React.Component {
 
