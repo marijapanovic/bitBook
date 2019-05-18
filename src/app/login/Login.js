@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 // import loginUser from "../../services/loginUser";
 import "./RegisterAndLogin.css";
@@ -79,7 +80,9 @@ class Login extends Component {
           </div>
 
           <div className="formField">
-            <button className="formFieldButton mr-20">Login</button>{" "}
+            <button className="formFieldButton">
+            <Link to='/' >Login</Link>
+            </button>{" "}
           </div>
         </form>
       </div>

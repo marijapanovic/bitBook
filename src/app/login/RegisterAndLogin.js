@@ -14,15 +14,10 @@ class RegisterAndLogin extends Component {
           <div className="appAside">
             <h2>BitBook</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum ut aliquet magna. Vivamus enim ipsum, facilisis ut
-              auctor a, rutrum quis urna. Nam sollicitudin scelerisque mauris at
-              semper. Interdum et malesuada fames ac ante ipsum primis in
-              faucibus. Donec elit ex, fringilla nec porttitor vehicula,
-              ultrices in orci. Proin varius lorem sed nisl finibus pellentesque
-              vitae placerat lacus. Suspendisse vel aliquet mauris, quis
-              sagittis mauris. Quisque porttitor, magna vitae suscipit volutpat,
-              risus tortor convallis augue, et viverra ligula enim in quam.
+            BitBook is a simple Social Media Application.
+            <br/>
+            <br/>
+            It is currently open for easy viewing of content, so please just click on Login to enter.
             </p>
           </div>
           <div className="appForm">

@@ -16,7 +16,7 @@ const Header = () => {
                         <i className="material-icons right"></i></li>
                         <li><Link to='/people'>People</Link></li>
                         <li><Link to='/profile'>Profile</Link></li>
-                        <li><Link to='/register'>Logout</Link></li>
+                        <li><Link to='/login'>Logout</Link></li>
 
                     </ul>
                 </div>
